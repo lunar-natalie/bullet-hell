@@ -114,7 +114,7 @@ Workflow:
 
 ### Standalone
 ```shell
-build/bin/bullet-hell
+build/bullet-hell
 ```
 
 ## Debugging from the development environmennt
