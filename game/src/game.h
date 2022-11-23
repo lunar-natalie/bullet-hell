@@ -15,7 +15,6 @@
 #include "entity/gem.h"
 #include "entity/shooter.h"
 
-#include <cmath>
 #include <filesystem>
 #include <olcPixelGameEngine.h>
 #include <vector>
