@@ -73,7 +73,7 @@ Debugging is enabled in the default workflow when building using VS Code.
 
 Workflow:
 * Configure the workspace for CMake when prompted, or run the `CMake: Configure`
-  command. Use `bullet-hell` as the default target.
+  command. Use `bullet_hell` as the default target.
 * `Tasks: Run Build Task`
    * Default shortcut: `Ctrl/Cmd+Shift+B`
 
