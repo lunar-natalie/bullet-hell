@@ -161,7 +161,6 @@ cmake --build build --target uninstall
 * Lines should be no longer than 80 characters, unless readability or
   functionality is significantly affected.
 * Each source file should begin with a comment formatted as follows:
-
   ```
   <filename>
 
