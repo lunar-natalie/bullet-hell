@@ -170,9 +170,9 @@ cmake --build build --target uninstall
 
   SPDX-License-Identifier: <identifier>
   ```
-* Code should fit the conditions specified in `.editorconfig` and
-  `.clang-format` (see the [ClangFormat documentation][www-clang-format] for
-  more information).
+* Code should fit the conditions specified in [`.editorconfig`](.editorconfig)
+  and [`.clang-format`](.clang-format) (see the
+  [ClangFormat documentation][www-clang-format] for more information).
 
 ## License
 Copyright (c) 2022 The SFC Project Authors.
