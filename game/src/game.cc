@@ -9,12 +9,13 @@
  */
 
 #include "game.h"
-#include "config.h"
-#include "entity/bullet.h"
-#include "entity/shooter.h"
 
 #include <filesystem>
 #include <vector>
+
+#include "config.h"
+#include "entity/bullet.h"
+#include "entity/shooter.h"
 
 using namespace bullet_hell;
 

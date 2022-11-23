@@ -8,13 +8,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <cstdlib>
+
 #define OLC_PGE_APPLICATION
 #include <olcPixelGameEngine.h>
 
-#include <config.h>
+#include "config.h"
 #include "game.h"
-
-#include <cstdlib>
 
 using namespace bullet_hell;
 

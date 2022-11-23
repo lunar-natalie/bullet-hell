@@ -9,6 +9,7 @@
  */
 
 #include "gem.h"
+
 #include "base.h"
 
 using namespace bullet_hell;

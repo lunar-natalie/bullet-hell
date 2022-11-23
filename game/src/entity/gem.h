@@ -13,8 +13,6 @@
 
 #include "base.h"
 
-#include <olcPixelGameEngine.h>
-
 namespace bullet_hell {
 
 struct Gem : public Entity {

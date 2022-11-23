@@ -9,12 +9,18 @@
  */
 
 #include "game.h"
-#include "config.h"
 
 #include <cstdlib>
+
 #include <filesystem>
 #include <iostream>
+#include <string>
+#include <system_error>
+
 #include <olcPixelGameEngine.h>
+
+#include "config.h"
+#include "resources.h"
 
 using namespace bullet_hell;
 
@@ -45,23 +51,12 @@ bool Game::OnUserCreate()
         std::cerr << "Failed to load resource pack.";
     }
 
-    backgroundSprite = new olc::Sprite("background.png", resourcePack);
-    backgroundDecal = new olc::Decal(backgroundSprite);
-
-    bulletSprite = new olc::Sprite("bullet.png", resourcePack);
-    bulletDecal = new olc::Decal(bulletSprite);
-
-    shooterSprite = new olc::Sprite("shooter.png", resourcePack);
-    shooterDecal = new olc::Decal(shooterSprite);
-
-    shipSprite = new olc::Sprite("ship.png", resourcePack);
-    shipDecal = new olc::Decal(shipSprite);
-
-    explosionSprite = new olc::Sprite("explosion.png", resourcePack);
-    explosionDecal = new olc::Decal(explosionSprite);
-
-    gemSprite = new olc::Sprite("gems.png", resourcePack);
-    gemDecal = new olc::Decal(gemSprite);
+    backgroundSprite = createSprite(resources::image::BACKGROUND);
+    bulletSprite = createSprite(resources::image::BULLET);
+    shooterSprite = createSprite(resources::image::SHOOTER);
+    shipSprite = createSprite(resources::image::SHIP);
+    explosionSprite = createSprite(resources::image::EXPLOSION);
+    gemSprite = createSprite(resources::image::GEMS);
 
     return true;
 }

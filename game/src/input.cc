@@ -9,10 +9,12 @@
  */
 
 #include "game.h"
-#include "config.h"
 
 #include <iostream>
+
 #include <olcPixelGameEngine.h>
+
+#include "config.h"
 
 using namespace bullet_hell;
 

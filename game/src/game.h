@@ -11,13 +11,16 @@
 #ifndef BULLET_HELL_GAME_H
 #define BULLET_HELL_GAME_H
 
+#include <filesystem>
+#include <string>
+#include <vector>
+
+#include <olcPixelGameEngine.h>
+
 #include "entity/bullet.h"
 #include "entity/gem.h"
 #include "entity/shooter.h"
-
-#include <filesystem>
-#include <olcPixelGameEngine.h>
-#include <vector>
+#include "resident_sprite.h"
 
 namespace bullet_hell {
 
@@ -34,6 +37,11 @@ public:
     void draw();
 
 private:
+    inline ResidentSprite* createSprite(const std::string& fileName) const
+    {
+        return new ResidentSprite(fileName, resourcePack);
+    }
+
     void addBullets(size_t count, olc::vf2d start);
 
     std::filesystem::path execPath;
@@ -63,23 +71,12 @@ private:
     unsigned int explosionFrames;
     unsigned int explosionFrameRate;
 
-    olc::Sprite* backgroundSprite;
-    olc::Decal* backgroundDecal;
-
-    olc::Sprite* bulletSprite;
-    olc::Decal* bulletDecal;
-
-    olc::Sprite* shooterSprite;
-    olc::Decal* shooterDecal;
-
-    olc::Sprite* shipSprite;
-    olc::Decal* shipDecal;
-
-    olc::Sprite* explosionSprite;
-    olc::Decal* explosionDecal;
-
-    olc::Sprite* gemSprite;
-    olc::Decal* gemDecal;
+    ResidentSprite* backgroundSprite;
+    ResidentSprite* bulletSprite;
+    ResidentSprite* shooterSprite;
+    ResidentSprite* shipSprite;
+    ResidentSprite* explosionSprite;
+    ResidentSprite* gemSprite;
 };
 
 }; // namespace bullet_hell

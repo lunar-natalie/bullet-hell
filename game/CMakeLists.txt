@@ -13,7 +13,8 @@ set(bullet_hell_SOURCES
     game.cc
     input.cc
     main.cc
-    process.cc)
+    process.cc
+    resident_sprite.cc)
 
 list(TRANSFORM bullet_hell_SOURCES
      PREPEND "${bullet_hell_CODE_SOURCE_DIR}/")

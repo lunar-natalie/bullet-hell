@@ -8,12 +8,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "config.h"
 #include "game.h"
-#include "math.h"
 
 #include <cmath>
+
 #include <olcPixelGameEngine.h>
+
+#include "config.h"
+#include "math.h"
 
 using namespace bullet_hell;
 
@@ -30,7 +32,7 @@ void Game::draw()
 {
     SetPixelMode(olc::Pixel::NORMAL);
 
-    DrawDecal(olc::vf2d(0, 0), backgroundDecal);
+    DrawDecal(olc::vf2d(0, 0), backgroundSprite->decal);
 
     float scale = 0.0333;
     auto centrePoint = scale
@@ -38,7 +40,7 @@ void Game::draw()
                                    (float) bulletSprite->height / 2};
 
     for (const auto& bullet : bullets) {
-        DrawDecal(bullet.position - centrePoint, bulletDecal,
+        DrawDecal(bullet.position - centrePoint, bulletSprite->decal,
                   olc::vf2d{scale, scale});
     }
 
@@ -48,7 +50,7 @@ void Game::draw()
                               (float) shooterSprite->height / 2};
 
     for (const auto& shooter : shooters) {
-        DrawDecal(shooter.position - centrePoint, shooterDecal,
+        DrawDecal(shooter.position - centrePoint, shooterSprite->decal,
                   olc::vf2d{scale, scale});
     }
 
@@ -57,7 +59,7 @@ void Game::draw()
     centrePoint = scale * olc::vf2d{gemSize / 2, (float) gemSprite->height / 2};
 
     for (const auto& gem : gems) {
-        DrawPartialDecal(gem.position - centrePoint, gemDecal,
+        DrawPartialDecal(gem.position - centrePoint, gemSprite->decal,
                          olc::vf2d{gem.type * gemSize, 0},
                          olc::vf2d{gemSize * scale, gemSprite->height * scale});
     }
@@ -68,17 +70,18 @@ void Game::draw()
                       * olc::vf2d{(float) shipSprite->width / 2,
                                   (float) shipSprite->height / 2};
 
-        DrawDecal(shipPosition - centrePoint, shipDecal,
+        DrawDecal(shipPosition - centrePoint, shipSprite->decal,
                   olc::vf2d{scale, scale});
     } else if (explosionTimer < explosionFrames / explosionFrameRate) {
         float explosionSize = (float) explosionSprite->width / explosionFrames;
         int explosionFrame = explosionTimer * explosionFrameRate;
         centrePoint = olc::vf2d{explosionSize / 2, explosionSize / 2};
 
-        DrawPartialDecal(
-            shipPosition - centrePoint, olc::vf2d{explosionSize, explosionSize},
-            explosionDecal, olc::vf2d{explosionFrame * explosionSize, 0},
-            olc::vf2d{explosionSize, explosionSize});
+        DrawPartialDecal(shipPosition - centrePoint,
+                         olc::vf2d{explosionSize, explosionSize},
+                         explosionSprite->decal,
+                         olc::vf2d{explosionFrame * explosionSize, 0},
+                         olc::vf2d{explosionSize, explosionSize});
     }
 
     if (fps > 0) {

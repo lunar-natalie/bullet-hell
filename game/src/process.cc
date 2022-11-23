@@ -9,9 +9,10 @@
  */
 
 #include "game.h"
-#include "config.h"
 
 #include <cmath>
+
+#include "config.h"
 
 using namespace bullet_hell;
 
