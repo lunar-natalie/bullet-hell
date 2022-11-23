@@ -1,7 +1,7 @@
 /*
  * config.h(.in)
  *
- * CMake configured header for Bullet Hell runtime configuration.
+ * CMake configured header for runtime configuration.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

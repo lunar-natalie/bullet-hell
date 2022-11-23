@@ -1,7 +1,7 @@
 /*
  * config.h(.in)
  *
- * CMake configured header for resource builder configuration.
+ * CMake configured header for resource builder runtime configuration.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

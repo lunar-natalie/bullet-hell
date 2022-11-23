@@ -1,7 +1,7 @@
 /*
  * base.h
  *
- * Base object for an entity.
+ * Base entity object.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

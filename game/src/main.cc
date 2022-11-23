@@ -1,7 +1,7 @@
 /*
  * main.cc
  *
- * Entry point to the Bullet Hell game.
+ * Entry point to the Bullet Hell.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

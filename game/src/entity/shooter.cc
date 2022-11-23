@@ -1,7 +1,7 @@
 /*
  * shooter.cc
  *
- * Shooter entity.
+ * Shooter methods.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

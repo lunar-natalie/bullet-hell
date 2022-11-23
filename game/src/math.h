@@ -1,7 +1,7 @@
 /*
  * math.h
  *
- * Mathematical utilities.
+ * Mathematical definitions.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

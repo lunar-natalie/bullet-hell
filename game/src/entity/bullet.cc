@@ -1,7 +1,7 @@
 /*
  * bullet.cc
  *
- * Bullet entity.
+ * Bullet methods.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

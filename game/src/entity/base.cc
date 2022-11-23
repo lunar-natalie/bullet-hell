@@ -1,7 +1,7 @@
 /*
  * base.cc
  *
- * Base object for an entity.
+ * Base entity methods.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

@@ -1,7 +1,7 @@
 /*
  * game.h
  *
- * Main game handler.
+ * Game class.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -28,10 +28,11 @@ public:
 
     bool OnUserCreate() override;
     bool OnUserUpdate(float fElapsedTime) override;
+    bool OnUserDestroy() override;
+
     void input();
     void process(float elapsedTime);
     void draw();
-    bool OnUserDestroy() override;
 
 private:
     void addBullets(size_t count, olc::vf2d start);

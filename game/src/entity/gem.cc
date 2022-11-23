@@ -1,7 +1,7 @@
 /*
  * gem.cc
  *
- * Gem entity.
+ * Gem methods.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
