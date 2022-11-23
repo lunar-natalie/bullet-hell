@@ -233,20 +233,20 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## Asset licenses
-Paths are relative to the [`assets`](assets/) directory in the source
+Listed paths are relative to the [`assets`](assets/) directory in the source
 distribution, and are relative to the default resource pack at runtime:
-* [`background.png`](background.png)
+* [`background.png`](assets/background.png)
    * Image by [Jeremy Thomas][www-jeremy-thomas]
    * License: [Unsplash][www-unsplash-license]
-* [`bullet.png`](bullet.png)
+* [`bullet.png`](assets/bullet.png)
    * License: Public domain
-* [`explosion.png`](explosion.png)
+* [`explosion.png`](assets/explosion.png)
    * License: Unknown / Public domain
-* [`gems.png`](gems.png)
+* [`gems.png`](assets/gems.png)
    * License: Unknown / Public domain
-* [`ship.png`](ship.png)
+* [`ship.png`](assets/ship.png)
    * License: Unknown / Public domain
-* [`shooter.png`](shooter.png)
+* [`shooter.png`](assets/shooter.png)
    * License: Free for non-commercial use
 
 
