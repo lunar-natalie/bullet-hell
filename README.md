@@ -99,8 +99,8 @@ cmake --build build
 ```
 
 The executable will be written to
-[`build/bin/bullet-hell`](build/bin/bullet-hell) and the required resource pack
-to [`build/bin/resources.dat`](build/bin/resources.dat).
+[`build/bullet-hell`](build/bullet-hell) and the required resource pack to
+[`build/resources.dat`](build/resources.dat).
 
 Cleaning the build environment:
 ```shell
