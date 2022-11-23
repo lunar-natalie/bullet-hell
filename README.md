@@ -149,13 +149,13 @@ cmake --build build --target uninstall
   the program, modify the `bullet_hell_SOURCES` variable in
   [`game/CMakeLists.txt`](game/CMakeLists.txt).
 * Resources are loaded at runtime from a resource pack. Source assets are
-  located in [`assets/`](assets/) and are bundled by the source code in the
-  [`resource_builder`](resource_builder/) directory at build time.
+  located in the [`assets`](assets/) directory and are bundled by the source
+  code in the [`resource_builder`](resource_builder/) directory at build time.
 * C++ source files have the extension `.cc`.
 * C/C++ header files have the extension `.h`.
 * Headers configured by CMake at build time have the extension `.h.in`.
 * Headers shared by both the game and the resource builder are located in
-  [`shared/`](shared/).
+  the [`shared`](shared/) directory.
 
 ## Coding style
 * Lines should be no longer than 80 characters, unless readability or
