@@ -4,10 +4,18 @@ root = true
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{cc,h},CMakeLists.txt]
+[*.{cc,h,h.in}]
+indent_style = space
+tab_width = 4
+
+[CMakeLists.txt,*.cmake.in]
 indent_style = space
 tab_width = 4
 
 [.clang-format]
+indent_style = space
+tab_width = 2
+
+[README.md]
 indent_style = space
 tab_width = 2
