@@ -1,0 +1,24 @@
+/*
+ * config.h(.in)
+ *
+ * CMake configured header for Bullet Hell runtime configuration.
+ *
+ * Copyright (c) 2022 The SFC Project Authors.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#ifndef BULLET_HELL_CONFIG_H
+#define BULLET_HELL_CONFIG_H
+
+namespace bullet_hell::config {
+
+constexpr const char* APP_NAME = "Bullet Hell";
+constexpr const char* RESOURCE_PACK_FILENAME = "@RESOURCE_PACK_FILENAME@";
+constexpr const char* DATA_DIR = "@SYSTEM_SHARED_DATA_DIR@";
+constexpr const unsigned int WINDOW_WIDTH = 1280;
+constexpr const unsigned int WINDOW_HEIGHT = 720;
+
+}; // namespace bullet_hell::config
+
+#endif // BULLET_HELL_CONFIG_H

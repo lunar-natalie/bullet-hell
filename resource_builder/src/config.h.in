@@ -1,0 +1,21 @@
+/*
+ * config.h(.in)
+ *
+ * CMake configured header for resource builder configuration.
+ *
+ * Copyright (c) 2022 The SFC Project Authors.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#ifndef RESOURCE_BUILDER_CONFIG_H
+#define RESOURCE_BUILDER_CONFIG_H
+
+namespace resource_builder::config {
+
+constexpr const char* assetDirName = "@resource_builder_ASSET_DIR@";
+constexpr const char* outputFileName = "@resource_builder_DATA_OUTPUT@";
+
+}; // namespace resource_builder::config
+
+#endif // RESOURCE_BUILDER_CONFIG_H
