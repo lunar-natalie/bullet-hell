@@ -4,28 +4,28 @@ Farnborough C++ (SFC) Project.
 
 ## Table of contents
 * [Bullet Hell](#bullet-hell)
-   * [Table of contents](#table-of-contents)
-   * [Documentation](#documentation)
-   * [Supported platforms](#supported-platforms)
-   * [Requirements](#requirements)
-   * [Building](#building)
-      * [Requirements](#requirements-1)
-      * [VS Code](#vs-code)
-      * [Standalone](#standalone)
-   * [Running from the development environmennt](#running-from-the-development-environmennt)
-      * [VS Code](#vs-code-1)
-      * [Standalone](#standalone-1)
-   * [Debugging from the development environmennt](#debugging-from-the-development-environmennt)
-      * [Requirements](#requirements-2)
-      * [VS Code](#vs-code-2)
-   * [Installation](#installation)
-      * [Uninstallation](#uninstallation)
-   * [Structure](#structure)
-   * [Coding style](#coding-style)
-   * [License](#license)
-   * [Library licenses](#library-licenses)
-      * [olcPixelGameEngine (OLC-3)](#olcpixelgameengine-olc-3)
-   * [Asset licenses](#asset-licenses)
+  * [Table of contents](#table-of-contents)
+  * [Documentation](#documentation)
+  * [Supported platforms](#supported-platforms)
+  * [Requirements](#requirements)
+  * [Building](#building)
+    * [Requirements](#requirements-1)
+    * [VS Code](#vs-code)
+    * [Standalone](#standalone)
+  * [Running from the development environmennt](#running-from-the-development-environmennt)
+    * [VS Code](#vs-code-1)
+    * [Standalone](#standalone-1)
+  * [Debugging from the development environmennt](#debugging-from-the-development-environmennt)
+    * [Requirements](#requirements-2)
+    * [VS Code](#vs-code-2)
+  * [Installation](#installation)
+    * [Uninstallation](#uninstallation)
+  * [Structure](#structure)
+  * [Coding style](#coding-style)
+  * [License](#license)
+  * [Library licenses](#library-licenses)
+    * [olcPixelGameEngine (OLC-3)](#olcpixelgameengine-olc-3)
+  * [Asset licenses](#asset-licenses)
 
 ## Documentation
 * Documentation and code is written in United States English for integration
@@ -83,15 +83,15 @@ Cleaning the build environment:
 ### Standalone
 Configure:
 * Debug
-   ```shell
-   mkdir -p build && \
-   cmake -DCMAKE_BUILD_TYPE=Debug -S. -Bbuild
-   ```
+  ```shell
+  mkdir -p build && \
+  cmake -DCMAKE_BUILD_TYPE=Debug -S. -Bbuild
+  ```
 * Release
-   ```shell
-   mkdir -p build && \
-   cmake -S. -Bbuild
-   ```
+  ```shell
+  mkdir -p build && \
+  cmake -S. -Bbuild
+  ```
 
 Build:
 ```shell
