@@ -20,7 +20,7 @@ namespace bullet_hell {
 struct ResidentSprite : public olc::Sprite {
     olc::Decal* decal;
 
-    ResidentSprite(const std::string& imageFileName,
+    ResidentSprite(const std::string& imageFilename,
                    olc::ResourcePack* pack = nullptr);
 };
 

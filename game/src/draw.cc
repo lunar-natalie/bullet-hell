@@ -1,7 +1,7 @@
 /*
  * draw.cc
  *
- * Frame drawing routine.
+ * Per-frame drawing routine.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -11,22 +11,13 @@
 #include "game.h"
 
 #include <cmath>
+#include <cstddef>
 
 #include <olcPixelGameEngine.h>
 
-#include "config.h"
 #include "math.h"
 
 using namespace bullet_hell;
-
-void Game::addBullets(size_t count, olc::vf2d start)
-{
-    float offset = math::TWO_PI * ((float) rand() / (float) RAND_MAX);
-    for (auto i = 0; i < count; ++i) {
-        const double x = (math::TWO_PI * ((double) i / count)) + offset;
-        bullets.push_back(Bullet(start.x, start.y, 100 * cos(x), 100 * sin(x)));
-    }
-}
 
 void Game::draw()
 {
@@ -85,8 +76,7 @@ void Game::draw()
     }
 
     if (fps > 0) {
-        auto fpsPosition =
-            olc::vi2d(config::WINDOW_WIDTH - 70, config::WINDOW_HEIGHT - 70);
+        auto fpsPosition = olc::vi2d(screenWidth - 70, screenHeight - 70);
         DrawStringDecal(fpsPosition, "FPS " + std::to_string(fps));
     }
 }

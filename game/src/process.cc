@@ -1,7 +1,7 @@
 /*
  * process.cc
  *
- * Continuous logic.
+ * Per-frame logic handler.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -11,13 +11,52 @@
 #include "game.h"
 
 #include <cmath>
+#include <cstddef>
+#include <cstdlib>
+#include <iostream>
 
-#include "config.h"
+#include <olcPixelGameEngine.h>
+
+#include "math.h"
 
 using namespace bullet_hell;
 
+void Game::addBullets(size_t count, olc::vf2d start)
+{
+    const float offset = (float) math::TWO_PI * math::randomMultiplier();
+    for (size_t i = 0; i < count; ++i) {
+        const float x =
+            ((float) math::TWO_PI * ((float) i / (float) count)) + offset;
+        bullets.push_back(Bullet(start.x, start.y, 100 * cos(x), 100 * sin(x)));
+    }
+}
+
 void Game::process(float elapsedTime)
 {
+    timer += elapsedTime;
+    ++frames;
+    if (timer > 1.0f) {
+        fps = frames;
+        frames = 0;
+        --timer;
+        std::cout << shooters.size() << " shooters, " << bullets.size()
+                  << " bullets, " << gems.size() << " gems." << std::endl;
+    }
+
+    shooterSpawnTimer -= elapsedTime;
+    if (shooterSpawnTimer < 0) {
+        shooterSpawnTimer += 2;
+        shooters.push_back(Shooter(math::randomMultiplier() * screenWidth, -20,
+                                   0, 50, 0.25, 10));
+    }
+
+    gemSpawnTimer -= elapsedTime;
+    if (gemSpawnTimer < 0) {
+        gemSpawnTimer += 0.5;
+        gems.push_back(Gem(math::randomMultiplier() * screenHeight, -20, 0, 100,
+                           rand() % 4));
+    }
+
     if (shipAlive) {
         shipVelocity += elapsedTime * shipAcceleration;
 
@@ -45,12 +84,12 @@ void Game::process(float elapsedTime)
             shipPosition.y = 25;
             shipVelocity.y = 0;
         }
-        if (shipPosition.x > config::WINDOW_WIDTH - 25) {
-            shipPosition.x = config::WINDOW_WIDTH - 25;
+        if (shipPosition.x > screenWidth - 25) {
+            shipPosition.x = screenWidth - 25;
             shipVelocity.x = 0;
         }
-        if (shipPosition.y > config::WINDOW_HEIGHT - 25) {
-            shipPosition.y = config::WINDOW_HEIGHT - 25;
+        if (shipPosition.y > screenHeight - 25) {
+            shipPosition.y = screenHeight - 25;
             shipVelocity.y = 0;
         }
     } else {
@@ -76,8 +115,8 @@ void Game::process(float elapsedTime)
 
         if (shipHit || bullets[i].position.x < -20
             || bullets[i].position.y < -20
-            || bullets[i].position.x > config::WINDOW_WIDTH + 20
-            || bullets[i].position.y > config::WINDOW_HEIGHT + 20) {
+            || bullets[i].position.x > screenWidth + 20
+            || bullets[i].position.y > screenHeight + 20) {
             bullets.erase(bullets.begin() + i);
         } else {
             ++i;
@@ -90,8 +129,8 @@ void Game::process(float elapsedTime)
                        < pow(30, 2);
 
         if (shipHit || gems[i].position.x < -20 || gems[i].position.y < -20
-            || gems[i].position.x > config::WINDOW_WIDTH + 20
-            || gems[i].position.y > config::WINDOW_HEIGHT + 20) {
+            || gems[i].position.x > screenWidth + 20
+            || gems[i].position.y > screenHeight + 20) {
             gems.erase(gems.begin() + i);
         } else {
             ++i;
@@ -109,8 +148,8 @@ void Game::process(float elapsedTime)
 
     for (auto i = 0; i < shooters.size();) {
         if (shooters[i].position.x < -20 || shooters[i].position.y < -20
-            || shooters[i].position.x > config::WINDOW_WIDTH + 20
-            || shooters[i].position.y > config::WINDOW_HEIGHT + 20) {
+            || shooters[i].position.x > screenWidth + 20
+            || shooters[i].position.y > screenHeight + 20) {
             shooters.erase(shooters.begin() + i);
         } else {
             ++i;

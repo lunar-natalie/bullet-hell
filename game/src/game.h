@@ -11,6 +11,8 @@
 #ifndef BULLET_HELL_GAME_H
 #define BULLET_HELL_GAME_H
 
+#include <cstddef>
+
 #include <filesystem>
 #include <string>
 #include <vector>
@@ -32,26 +34,33 @@ public:
     bool OnUserUpdate(float fElapsedTime) override;
     bool OnUserDestroy() override;
 
+private:
     void input();
     void process(float elapsedTime);
     void draw();
 
-private:
-    inline ResidentSprite* createSprite(const std::string& fileName) const
-    {
-        return new ResidentSprite(fileName, resourcePack);
-    }
+    void updateScreenDimensions();
+    void resetShipPosition();
+
+    ResidentSprite* createSprite(const std::string& filename) const;
+    bool loadResourcePack();
+    void createSprites();
 
     void addBullets(size_t count, olc::vf2d start);
 
     std::filesystem::path execPath;
-    olc::ResourcePack* resourcePack;
+
+    bool shouldExit;
+
+    unsigned int screenWidth;
+    unsigned int screenHeight;
 
     float timer;
     unsigned int frames;
     unsigned int fps;
 
     std::vector<Bullet> bullets;
+
     std::vector<Shooter> shooters;
     float shooterSpawnTimer;
 
@@ -71,6 +80,7 @@ private:
     unsigned int explosionFrames;
     unsigned int explosionFrameRate;
 
+    olc::ResourcePack* resourcePack;
     ResidentSprite* backgroundSprite;
     ResidentSprite* bulletSprite;
     ResidentSprite* shooterSprite;

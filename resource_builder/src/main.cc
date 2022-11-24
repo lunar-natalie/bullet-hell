@@ -9,12 +9,15 @@
  */
 
 #define OLC_PGE_APPLICATION
-#include <olcPixelGameEngine.h>
-
-#include <config.h>
 
 #include <cstdlib>
+
 #include <filesystem>
+#include <system_error>
+
+#include <olcPixelGameEngine.h>
+
+#include "config.h"
 
 using namespace resource_builder;
 
@@ -26,18 +29,17 @@ int main()
     std::error_code pathError;
     auto rootPath = std::filesystem::current_path(pathError);
 
-    std::filesystem::current_path(config::assetDirName);
+    std::filesystem::current_path(config::ASSET_DIRNAME);
     auto assetsPath = std::filesystem::current_path();
 
     olc::ResourcePack* pack = new olc::ResourcePack();
-    for (const auto& entry :
-         recursive_directory_iterator(assetsPath)) {
+    for (const auto& entry : recursive_directory_iterator(assetsPath)) {
         if (entry.is_regular_file()) {
             pack->AddFile(std::filesystem::relative(entry.path(), assetsPath));
         }
     }
 
-    pack->SavePack(config::outputFileName, "");
+    pack->SavePack(config::OUTPUT_FILENAME, "");
 
     std::filesystem::current_path(rootPath);
 

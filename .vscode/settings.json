@@ -73,7 +73,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "*.rh": "cpp"
     },
     "cmake.configureOnOpen": true
 }

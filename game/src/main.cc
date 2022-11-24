@@ -8,9 +8,10 @@
  * SPDX-License-Identifier: MIT
  */
 
+#define OLC_PGE_APPLICATION
+
 #include <cstdlib>
 
-#define OLC_PGE_APPLICATION
 #include <olcPixelGameEngine.h>
 
 #include "config.h"

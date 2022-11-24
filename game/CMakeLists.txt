@@ -12,8 +12,10 @@ set(bullet_hell_SOURCES
     events.cc
     game.cc
     input.cc
+    loader.cc
     main.cc
     process.cc
+    properties.cc
     resident_sprite.cc)
 
 list(TRANSFORM bullet_hell_SOURCES

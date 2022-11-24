@@ -16,9 +16,9 @@
 
 using namespace bullet_hell;
 
-ResidentSprite::ResidentSprite(const std::string& imageFileName,
+ResidentSprite::ResidentSprite(const std::string& imageFilename,
                                olc::ResourcePack* pack)
-    : olc::Sprite(imageFileName, pack)
+    : olc::Sprite(imageFilename, pack)
 {
     decal = new olc::Decal(this);
 }

@@ -13,8 +13,8 @@
 
 namespace resource_builder::config {
 
-constexpr const char* assetDirName = "@resource_builder_ASSET_DIR@";
-constexpr const char* outputFileName = "@resource_builder_DATA_OUTPUT@";
+constexpr const char* ASSET_DIRNAME = "@resource_builder_ASSET_DIR@";
+constexpr const char* OUTPUT_FILENAME = "@resource_builder_DATA_OUTPUT@";
 
 }; // namespace resource_builder::config
 

@@ -28,6 +28,8 @@ Game::Game(int argc, char* argv[])
         execPath = std::filesystem::path(argv[0]);
     }
 
+    shouldExit = false;
+
     timer = 0;
     frames = 0;
 
@@ -36,8 +38,6 @@ Game::Game(int argc, char* argv[])
     shooterSpawnTimer = 0;
     gemSpawnTimer = 0;
 
-    shipPosition = {((float) config::WINDOW_WIDTH) / 2,
-                    ((float) config::WINDOW_HEIGHT) - 100};
     shipVelocity = {0, 0};
 
     acceleration = 3000;

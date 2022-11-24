@@ -1,7 +1,7 @@
 /*
  * input.cc
  *
- * Input handler.
+ * Per-frame input handler.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -20,6 +20,10 @@ using namespace bullet_hell;
 
 void Game::input()
 {
+    if (GetKey(olc::Key::ESCAPE).bPressed) {
+        shouldExit = true;
+    }
+
     shipAcceleration.x = 0;
     shipAcceleration.y = 0;
     if (GetKey(olc::Key::LEFT).bHeld) {
@@ -38,8 +42,7 @@ void Game::input()
     if (GetKey(olc::Key::R).bPressed) {
         shipAlive = true;
         shipVelocity = olc::vf2d{0, 0};
-        shipPosition = olc::vf2d{((float) config::WINDOW_WIDTH) / 2,
-                                 ((float) config::WINDOW_HEIGHT) - 100};
+        resetShipPosition();
         explosionTimer = 0;
     }
 
