@@ -21,6 +21,7 @@ using namespace bullet_hell;
 
 Game::Game(int argc, char* argv[])
 {
+    // Initialise application specific variables
     sAppName = std::string(config::APP_NAME);
 
     execPath = std::filesystem::path();
@@ -28,6 +29,7 @@ Game::Game(int argc, char* argv[])
         execPath = std::filesystem::path(argv[0]);
     }
 
+    // Initialise game variables
     shouldExit = false;
 
     timer = 0;

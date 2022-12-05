@@ -30,24 +30,30 @@ class Game : public olc::PixelGameEngine {
 public:
     Game(int argc, char* argv[]);
 
+    // OLC Game engine methods
     bool OnUserCreate() override;
     bool OnUserUpdate(float fElapsedTime) override;
     bool OnUserDestroy() override;
 
 private:
+    // Main processing
     void input();
     void process(float elapsedTime);
     void draw();
 
+    // Update properties
     void updateScreenDimensions();
     void resetShipPosition();
 
+    // Resource methods
     ResidentSprite* createSprite(const std::string& filename) const;
     bool loadResourcePack();
     void createSprites();
 
+    // Entity creation
     void addBullets(size_t count, olc::vf2d start);
 
+    // Application variables
     std::filesystem::path execPath;
 
     bool shouldExit;
@@ -59,6 +65,7 @@ private:
     unsigned int frames;
     unsigned int fps;
 
+    // Game variables
     std::vector<Bullet> bullets;
 
     std::vector<Shooter> shooters;
@@ -80,6 +87,7 @@ private:
     unsigned int explosionFrames;
     unsigned int explosionFrameRate;
 
+    // Rsources
     olc::ResourcePack* resourcePack;
     ResidentSprite* backgroundSprite;
     ResidentSprite* bulletSprite;

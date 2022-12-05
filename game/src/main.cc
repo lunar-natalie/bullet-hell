@@ -21,8 +21,12 @@ using namespace bullet_hell;
 
 int main(int argc, char* argv[])
 {
+    // Initialise the game instance
     Game game(argc, argv);
+    
+    // Create the game window
     if (game.Construct(config::WINDOW_WIDTH, config::WINDOW_HEIGHT, 1, 1)) {
+        // If the window is created successfully start the game
         game.Start();
     }
 

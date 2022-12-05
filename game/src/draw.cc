@@ -23,8 +23,10 @@ void Game::draw()
 {
     SetPixelMode(olc::Pixel::NORMAL);
 
+    // Draw the background
     DrawDecal(olc::vf2d(0, 0), backgroundSprite->decal);
 
+    // Draw all bulllets
     float scale = 0.0333;
     auto centrePoint = scale
                        * olc::vf2d{(float) bulletSprite->width / 2,
@@ -35,6 +37,7 @@ void Game::draw()
                   olc::vf2d{scale, scale});
     }
 
+    // Draw all shooters
     scale = 0.0333;
     centrePoint = scale
                   * olc::vf2d{(float) shooterSprite->width / 2,
@@ -45,6 +48,7 @@ void Game::draw()
                   olc::vf2d{scale, scale});
     }
 
+    // Draw all gems
     scale = 1;
     float gemSize = (float) gemSprite->width / 4;
     centrePoint = scale * olc::vf2d{gemSize / 2, (float) gemSprite->height / 2};
@@ -56,6 +60,7 @@ void Game::draw()
     }
 
     if (shipAlive) {
+        // Draw the ship if it is still alive
         scale = 1;
         centrePoint = scale
                       * olc::vf2d{(float) shipSprite->width / 2,
@@ -64,6 +69,7 @@ void Game::draw()
         DrawDecal(shipPosition - centrePoint, shipSprite->decal,
                   olc::vf2d{scale, scale});
     } else if (explosionTimer < explosionFrames / explosionFrameRate) {
+        // Draw the expolision effect if there are still frames left to be drawn
         float explosionSize = (float) explosionSprite->width / explosionFrames;
         int explosionFrame = explosionTimer * explosionFrameRate;
         centrePoint = olc::vf2d{explosionSize / 2, explosionSize / 2};
@@ -75,6 +81,7 @@ void Game::draw()
                          olc::vf2d{explosionSize, explosionSize});
     }
 
+    // Display the FPS
     if (fps > 0) {
         auto fpsPosition = olc::vi2d(screenWidth - 70, screenHeight - 70);
         DrawStringDecal(fpsPosition, "FPS " + std::to_string(fps));

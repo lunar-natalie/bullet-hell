@@ -39,6 +39,7 @@ void Game::input()
         shipAcceleration.y += acceleration;
     }
 
+    // Respawn ship
     if (GetKey(olc::Key::R).bPressed) {
         shipAlive = true;
         shipVelocity = olc::vf2d{0, 0};
@@ -46,6 +47,7 @@ void Game::input()
         explosionTimer = 0;
     }
 
+    // Debug key
     if (GetMouse(0).bHeld) {
         std::cout << "Click!" << std::endl;
     }
