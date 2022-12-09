@@ -23,7 +23,7 @@
 #include "explosion.h"
 #include "gem.h"
 #include "plasma.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 #include "ship.h"
 #include "shooter.h"
 
@@ -44,7 +44,7 @@ private:
 
     void updateScreenDimensions();
 
-    ResidentSprite* createSprite(const std::string& filename) const;
+    Sprite* createSprite(const std::string& filename) const;
     bool loadResourcePack();
     void createSprites();
 
@@ -70,7 +70,7 @@ private:
     std::vector<Plasma*> plasmas;
 
     olc::ResourcePack* resourcePack;
-    ResidentSprite* backgroundSprite;
+    Sprite* backgroundSprite;
 };
 
 } // namespace bullet_hell

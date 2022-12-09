@@ -21,7 +21,7 @@
 #include "explosion.h"
 #include "gem.h"
 #include "plasma.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 #include "resources.h"
 #include "ship.h"
 #include "shooter.h"
@@ -69,7 +69,7 @@ void Game::createSprites()
     Explosion::frameCount = 25;
 }
 
-ResidentSprite* Game::createSprite(const std::string& filename) const
+Sprite* Game::createSprite(const std::string& filename) const
 {
-    return new ResidentSprite(filename, resourcePack);
+    return new Sprite(filename, resourcePack);
 }

@@ -12,12 +12,12 @@
 #define BULLET_HELL_BULLET_H
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 namespace bullet_hell {
 
 struct Bullet : public MovingEntity {
-    static ResidentSprite* sprite;
+    static Sprite* sprite;
 
     Bullet(float x, float y, float dx, float dy);
 };

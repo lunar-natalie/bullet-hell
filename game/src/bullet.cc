@@ -11,11 +11,11 @@
 #include "bullet.h"
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-ResidentSprite* Bullet::sprite = nullptr;
+Sprite* Bullet::sprite = nullptr;
 
 Bullet::Bullet(float x, float y, float dx, float dy)
     : MovingEntity(x, y, dx, dy)

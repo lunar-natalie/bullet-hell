@@ -18,9 +18,9 @@ set(bullet_hell_SOURCES
     plasma.cc
     process.cc
     properties.cc
-    resident_sprite.cc
     ship.cc
-    shooter.cc)
+    shooter.cc
+    sprite.cc)
 
 list(TRANSFORM bullet_hell_SOURCES
     PREPEND ${bullet_hell_CODE_SOURCE_DIR}/)

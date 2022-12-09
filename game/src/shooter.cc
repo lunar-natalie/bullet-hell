@@ -11,11 +11,11 @@
 #include "shooter.h"
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-ResidentSprite* Shooter::sprite = nullptr;
+Sprite* Shooter::sprite = nullptr;
 float Shooter::spawnTimer;
 float Shooter::spawnRate;
 

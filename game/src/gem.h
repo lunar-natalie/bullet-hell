@@ -12,12 +12,12 @@
 #define BULLET_HELL_GEM_H
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 namespace bullet_hell {
 
 struct Gem : public MovingEntity {
-    static ResidentSprite* sprite;
+    static Sprite* sprite;
     enum class Type : unsigned int {
         RED = 0,
         YELLOW = 1,

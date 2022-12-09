@@ -13,11 +13,11 @@
 #include <olcPixelGameEngine.h>
 
 #include "entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-ResidentSprite* Explosion::sprite = nullptr;
+Sprite* Explosion::sprite = nullptr;
 unsigned int Explosion::frameCount;
 float Explosion::frameRate = 20.0f;
 

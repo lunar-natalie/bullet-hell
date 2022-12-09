@@ -13,11 +13,11 @@
 #include <cstdlib>
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-ResidentSprite* Gem::sprite = nullptr;
+Sprite* Gem::sprite = nullptr;
 float Gem::spawnTimer;
 float Gem::spawnRate;
 

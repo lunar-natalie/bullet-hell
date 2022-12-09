@@ -12,12 +12,12 @@
 #define BULLET_HELL_PLASMA_H
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 namespace bullet_hell {
 
 struct Plasma : public MovingEntity {
-    static ResidentSprite* sprite;
+    static Sprite* sprite;
     static const float startXOffset;
     static const float baseSpeed;
 

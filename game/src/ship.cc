@@ -10,11 +10,11 @@
 
 #include "ship.h"
 
-#include "resident_sprite.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-ResidentSprite* Ship::sprite = nullptr;
+Sprite* Ship::sprite = nullptr;
 
 Ship::Ship()
 {

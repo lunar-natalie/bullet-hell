@@ -14,12 +14,12 @@
 #include <olcPixelGameEngine.h>
 
 #include "entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 namespace bullet_hell {
 
 struct Explosion : public Entity {
-    static ResidentSprite* sprite;
+    static Sprite* sprite;
     static unsigned int frameCount;
     static float frameRate;
     float timer;

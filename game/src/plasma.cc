@@ -11,11 +11,11 @@
 #include "plasma.h"
 
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-ResidentSprite* Plasma::sprite = nullptr;
+Sprite* Plasma::sprite = nullptr;
 const float Plasma::startXOffset = -40.0f;
 const float Plasma::baseSpeed = 500.0f;
 

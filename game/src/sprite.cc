@@ -1,5 +1,5 @@
 /*
- * resident_sprite.cc
+ * sprite.cc
  *
  * Sprite wrapper methods.
  *
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-#include "resident_sprite.h"
+#include "sprite.h"
 
 #include <string>
 
@@ -16,8 +16,7 @@
 
 using namespace bullet_hell;
 
-ResidentSprite::ResidentSprite(const std::string& imageFilename,
-                               olc::ResourcePack* pack)
+Sprite::Sprite(const std::string& imageFilename, olc::ResourcePack* pack)
     : olc::Sprite(imageFilename, pack)
 {
     decal = new olc::Decal(this);

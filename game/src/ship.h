@@ -15,12 +15,12 @@
 
 #include "direction.h"
 #include "moving_entity.h"
-#include "resident_sprite.h"
+#include "sprite.h"
 
 namespace bullet_hell {
 
 struct Ship : public MovingEntity {
-    static ResidentSprite* sprite;
+    static Sprite* sprite;
     olc::vf2d acceleration;
     Direction direction;
     float accelerationModifier;
