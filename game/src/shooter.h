@@ -8,8 +8,8 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-#ifndef BULLET_HELL_ENTITY_SHOOTER_H
-#define BULLET_HELL_ENTITY_SHOOTER_H
+#ifndef BULLET_HELL_SHOOTER_H
+#define BULLET_HELL_SHOOTER_H
 
 #include "entity.h"
 
@@ -26,4 +26,4 @@ struct Shooter : public Entity {
 
 } // namespace bullet_hell
 
-#endif // BULLET_HELL_ENTITY_SHOOTER_H
+#endif // BULLET_HELL_SHOOTER_H

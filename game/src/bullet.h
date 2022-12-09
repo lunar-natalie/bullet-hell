@@ -8,8 +8,8 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-#ifndef BULLET_HELL_ENTITY_BULLET_H
-#define BULLET_HELL_ENTITY_BULLET_H
+#ifndef BULLET_HELL_BULLET_H
+#define BULLET_HELL_BULLET_H
 
 #include "entity.h"
 
@@ -21,4 +21,4 @@ struct Bullet : public Entity {
 
 } // namespace bullet_hell
 
-#endif // BULLET_HELL_ENTITY_BULLET_H
+#endif // BULLET_HELL_BULLET_H

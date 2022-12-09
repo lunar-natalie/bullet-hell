@@ -8,8 +8,8 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-#ifndef BULLET_HELL_ENTITY_BASE_H
-#define BULLET_HELL_ENTITY_BASE_H
+#ifndef BULLET_HELL_ENTITY_H
+#define BULLET_HELL_ENTITY_H
 
 #include <olcPixelGameEngine.h>
 
@@ -24,4 +24,4 @@ struct Entity {
 
 } // namespace bullet_hell
 
-#endif // BULLET_HELL_ENTITY_BASE_H
+#endif // BULLET_HELL_ENTITY_H

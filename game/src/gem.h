@@ -8,8 +8,8 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-#ifndef BULLET_HELL_ENTITY_GEM_H
-#define BULLET_HELL_ENTITY_GEM_H
+#ifndef BULLET_HELL_GEM_H
+#define BULLET_HELL_GEM_H
 
 #include "entity.h"
 
@@ -23,4 +23,4 @@ struct Gem : public Entity {
 
 } // namespace bullet_hell
 
-#endif // BULLET_HELL_ENTITY_GEM_H
+#endif // BULLET_HELL_GEM_H
