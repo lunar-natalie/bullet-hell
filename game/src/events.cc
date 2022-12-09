@@ -19,7 +19,8 @@ bool Game::OnUserCreate()
     // Load resources from resource pack
     if (loadResourcePack()) {
         createSprites();
-    } else {
+    }
+    else {
         std::cerr << "Failed to load resource pack.";
     }
 

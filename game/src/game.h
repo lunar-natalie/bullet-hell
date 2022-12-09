@@ -89,6 +89,6 @@ private:
     ResidentSprite* gemSprite;
 };
 
-}; // namespace bullet_hell
+} // namespace bullet_hell
 
 #endif // BULLET_HELL_GAME_H

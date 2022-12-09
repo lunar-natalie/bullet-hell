@@ -11,7 +11,9 @@
 #ifndef BULLET_HELL_RESOURCES_H
 #define BULLET_HELL_RESOURCES_H
 
-namespace bullet_hell::resources {
+namespace bullet_hell {
+
+namespace resources {
 
 namespace image {
 
@@ -22,8 +24,10 @@ constexpr const char* GEMS = "gems.png";
 constexpr const char* SHIP = "ship.png";
 constexpr const char* SHOOTER = "shooter.png";
 
-}; // namespace image
+} // namespace image
 
-}; // namespace bullet_hell::resources
+} // namespace resources
+
+} // namespace bullet_hell
 
 #endif // BULLET_HELL_RESOURCES_H

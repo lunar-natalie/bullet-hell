@@ -23,6 +23,6 @@ inline float randomMultiplier()
     return (float) rand() / (float) RAND_MAX;
 }
 
-}; // namespace bullet_hell::math
+} // namespace bullet_hell::math
 
 #endif // BULLET_HELL_MATH_H

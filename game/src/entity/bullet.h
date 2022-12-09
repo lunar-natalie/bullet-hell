@@ -19,6 +19,6 @@ struct Bullet : public Entity {
     Bullet(float x, float y, float dx, float dy);
 };
 
-}; // namespace bullet_hell
+} // namespace bullet_hell
 
 #endif // BULLET_HELL_ENTITY_BULLET_H

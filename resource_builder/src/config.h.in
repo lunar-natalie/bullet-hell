@@ -16,6 +16,6 @@ namespace resource_builder::config {
 constexpr const char* ASSET_DIRNAME = "@resource_builder_ASSET_DIR@";
 constexpr const char* OUTPUT_FILENAME = "@resource_builder_DATA_OUTPUT@";
 
-}; // namespace resource_builder::config
+} // namespace resource_builder::config
 
 #endif // RESOURCE_BUILDER_CONFIG_H

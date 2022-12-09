@@ -24,6 +24,6 @@ struct Shooter : public Entity {
             unsigned int fireCount);
 };
 
-}; // namespace bullet_hell
+} // namespace bullet_hell
 
 #endif // BULLET_HELL_ENTITY_SHOOTER_H

@@ -15,6 +15,7 @@
 using namespace bullet_hell;
 
 Gem::Gem(float x, float y, float dx, float dy, int type)
-    : Entity(x, y, dx, dy), type{type}
+    : Entity(x, y, dx, dy),
+      type{type}
 {
-};
+}

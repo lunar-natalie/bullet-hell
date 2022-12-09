@@ -24,6 +24,6 @@ struct ResidentSprite : public olc::Sprite {
                    olc::ResourcePack* pack = nullptr);
 };
 
-}; // namespace bullet_hell
+} // namespace bullet_hell
 
 #endif // BULLET_HELL_RESIDENT_SPRITE_H

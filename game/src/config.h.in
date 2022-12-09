@@ -19,6 +19,6 @@ constexpr const char* DATA_DIR = "@SYSTEM_SHARED_DATA_DIR@";
 constexpr const unsigned int WINDOW_WIDTH = 1280;
 constexpr const unsigned int WINDOW_HEIGHT = 720;
 
-}; // namespace bullet_hell::config
+} // namespace bullet_hell::config
 
 #endif // BULLET_HELL_CONFIG_H

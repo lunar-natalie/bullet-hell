@@ -21,6 +21,6 @@ struct Gem : public Entity {
     Gem(float x, float y, float dx, float dy, int type);
 };
 
-}; // namespace bullet_hell
+} // namespace bullet_hell
 
 #endif // BULLET_HELL_ENTITY_GEM_H

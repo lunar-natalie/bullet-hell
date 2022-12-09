@@ -63,7 +63,8 @@ void Game::draw()
 
         DrawDecal(shipPosition - centrePoint, shipSprite->decal,
                   olc::vf2d{scale, scale});
-    } else if (explosionTimer < explosionFrames / explosionFrameRate) {
+    }
+    else if (explosionTimer < explosionFrames / explosionFrameRate) {
         float explosionSize = (float) explosionSprite->width / explosionFrames;
         int explosionFrame = explosionTimer * explosionFrameRate;
         centrePoint = olc::vf2d{explosionSize / 2, explosionSize / 2};

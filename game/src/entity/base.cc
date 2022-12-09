@@ -18,4 +18,4 @@ Entity::Entity(float x, float y, float dx, float dy)
     position.y = y;
     velocity.x = dx;
     velocity.y = dy;
-};
+}

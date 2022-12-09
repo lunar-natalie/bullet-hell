@@ -14,6 +14,7 @@
 
 using namespace bullet_hell;
 
-Bullet::Bullet(float x, float y, float dx, float dy) : Entity(x, y, dx, dy)
+Bullet::Bullet(float x, float y, float dx, float dy)
+    : Entity(x, y, dx, dy)
 {
-};
+}

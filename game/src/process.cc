@@ -92,7 +92,8 @@ void Game::process(float elapsedTime)
             shipPosition.y = screenHeight - 25;
             shipVelocity.y = 0;
         }
-    } else {
+    }
+    else {
         explosionTimer += elapsedTime;
     }
 
@@ -118,7 +119,8 @@ void Game::process(float elapsedTime)
             || bullets[i].position.x > screenWidth + 20
             || bullets[i].position.y > screenHeight + 20) {
             bullets.erase(bullets.begin() + i);
-        } else {
+        }
+        else {
             ++i;
         }
     }
@@ -132,7 +134,8 @@ void Game::process(float elapsedTime)
             || gems[i].position.x > screenWidth + 20
             || gems[i].position.y > screenHeight + 20) {
             gems.erase(gems.begin() + i);
-        } else {
+        }
+        else {
             ++i;
         }
     }
@@ -151,7 +154,8 @@ void Game::process(float elapsedTime)
             || shooters[i].position.x > screenWidth + 20
             || shooters[i].position.y > screenHeight + 20) {
             shooters.erase(shooters.begin() + i);
-        } else {
+        }
+        else {
             ++i;
         }
     }
