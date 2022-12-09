@@ -15,7 +15,11 @@
 
 #include <olcPixelGameEngine.h>
 
+#include "bullet.h"
+#include "gem.h"
 #include "math.h"
+#include "ship.h"
+#include "shooter.h"
 
 using namespace bullet_hell;
 
@@ -27,41 +31,43 @@ void Game::draw()
 
     float scale = 0.0333;
     auto centrePoint = scale
-                       * olc::vf2d{(float) bulletSprite->width / 2,
-                                   (float) bulletSprite->height / 2};
+                       * olc::vf2d{(float) Bullet::sprite->width / 2,
+                                   (float) Bullet::sprite->height / 2};
 
     for (const auto& bullet : bullets) {
-        DrawDecal(bullet.position - centrePoint, bulletSprite->decal,
+        DrawDecal(bullet.position - centrePoint, Bullet::sprite->decal,
                   olc::vf2d{scale, scale});
     }
 
     scale = 0.0333;
     centrePoint = scale
-                  * olc::vf2d{(float) shooterSprite->width / 2,
-                              (float) shooterSprite->height / 2};
+                  * olc::vf2d{(float) Shooter::sprite->width / 2,
+                              (float) Shooter::sprite->height / 2};
 
     for (const auto& shooter : shooters) {
-        DrawDecal(shooter.position - centrePoint, shooterSprite->decal,
+        DrawDecal(shooter.position - centrePoint, Shooter::sprite->decal,
                   olc::vf2d{scale, scale});
     }
 
     scale = 1;
-    float gemSize = (float) gemSprite->width / 4;
-    centrePoint = scale * olc::vf2d{gemSize / 2, (float) gemSprite->height / 2};
+    float gemSize = (float) Gem::sprite->width / 4;
+    centrePoint =
+        scale * olc::vf2d{gemSize / 2, (float) Gem::sprite->height / 2};
 
     for (const auto& gem : gems) {
-        DrawPartialDecal(gem.position - centrePoint, gemSprite->decal,
-                         olc::vf2d{gem.type * gemSize, 0},
-                         olc::vf2d{gemSize * scale, gemSprite->height * scale});
+        DrawPartialDecal(
+            gem.position - centrePoint, Gem::sprite->decal,
+            olc::vf2d{static_cast<float>(gem.type) * gemSize, 0},
+            olc::vf2d{gemSize * scale, Gem::sprite->height * scale});
     }
 
-    if (shipAlive) {
+    if (ship->isAlive) {
         scale = 1;
         centrePoint = scale
-                      * olc::vf2d{(float) shipSprite->width / 2,
-                                  (float) shipSprite->height / 2};
+                      * olc::vf2d{(float) Ship::sprite->width / 2,
+                                  (float) Ship::sprite->height / 2};
 
-        DrawDecal(shipPosition - centrePoint, shipSprite->decal,
+        DrawDecal(ship->position - centrePoint, Ship::sprite->decal,
                   olc::vf2d{scale, scale});
     }
     else if (explosionTimer < explosionFrames / explosionFrameRate) {
@@ -69,7 +75,7 @@ void Game::draw()
         int explosionFrame = explosionTimer * explosionFrameRate;
         centrePoint = olc::vf2d{explosionSize / 2, explosionSize / 2};
 
-        DrawPartialDecal(shipPosition - centrePoint,
+        DrawPartialDecal(ship->position - centrePoint,
                          olc::vf2d{explosionSize, explosionSize},
                          explosionSprite->decal,
                          olc::vf2d{explosionFrame * explosionSize, 0},

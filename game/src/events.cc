@@ -26,7 +26,6 @@ bool Game::OnUserCreate()
 
     // Set variables after GL initialization
     updateScreenDimensions();
-    resetShipPosition();
 
     return true;
 }

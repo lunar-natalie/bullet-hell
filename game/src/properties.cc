@@ -19,9 +19,3 @@ void Game::updateScreenDimensions()
     screenWidth = ScreenWidth();
     screenHeight = ScreenHeight();
 }
-
-void Game::resetShipPosition()
-{
-    shipPosition =
-        olc::vf2d{((float) screenWidth) / 2, ((float) screenHeight) - 100};
-}

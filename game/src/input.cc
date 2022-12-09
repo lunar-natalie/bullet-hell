@@ -15,38 +15,29 @@
 #include <olcPixelGameEngine.h>
 
 #include "config.h"
+#include "direction.h"
 
 using namespace bullet_hell;
 
 void Game::input()
 {
+    if (GetKey(olc::Key::R).bPressed) {
+        shouldReset = true;
+    }
     if (GetKey(olc::Key::ESCAPE).bPressed) {
         shouldExit = true;
     }
 
-    shipAcceleration.x = 0;
-    shipAcceleration.y = 0;
     if (GetKey(olc::Key::LEFT).bHeld) {
-        shipAcceleration.x -= acceleration;
+        ship->direction |= Direction::LEFT;
     }
     if (GetKey(olc::Key::RIGHT).bHeld) {
-        shipAcceleration.x += acceleration;
+        ship->direction |= Direction::RIGHT;
     }
     if (GetKey(olc::Key::UP).bHeld) {
-        shipAcceleration.y -= acceleration;
+        ship->direction |= Direction::UP;
     }
     if (GetKey(olc::Key::DOWN).bHeld) {
-        shipAcceleration.y += acceleration;
-    }
-
-    if (GetKey(olc::Key::R).bPressed) {
-        shipAlive = true;
-        shipVelocity = olc::vf2d{0, 0};
-        resetShipPosition();
-        explosionTimer = 0;
-    }
-
-    if (GetMouse(0).bHeld) {
-        std::cout << "Click!" << std::endl;
+        ship->direction |= Direction::DOWN;
     }
 }

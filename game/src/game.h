@@ -21,8 +21,9 @@
 
 #include "bullet.h"
 #include "gem.h"
-#include "shooter.h"
 #include "resident_sprite.h"
+#include "ship.h"
+#include "shooter.h"
 
 namespace bullet_hell {
 
@@ -40,7 +41,6 @@ private:
     void draw();
 
     void updateScreenDimensions();
-    void resetShipPosition();
 
     ResidentSprite* createSprite(const std::string& filename) const;
     bool loadResourcePack();
@@ -50,6 +50,7 @@ private:
 
     std::filesystem::path execPath;
 
+    bool shouldReset;
     bool shouldExit;
 
     unsigned int screenWidth;
@@ -59,34 +60,18 @@ private:
     unsigned int frames;
     unsigned int fps;
 
+    Ship* ship;
     std::vector<Bullet> bullets;
-
     std::vector<Shooter> shooters;
-    float shooterSpawnTimer;
-
     std::vector<Gem> gems;
-    float gemSpawnTimer;
 
-    olc::vf2d shipPosition;
-    olc::vf2d shipVelocity;
-    olc::vf2d shipAcceleration;
-
-    float acceleration;
-    float deceleration;
-    float maxSpeed;
-
-    bool shipAlive;
     float explosionTimer;
     unsigned int explosionFrames;
     unsigned int explosionFrameRate;
 
     olc::ResourcePack* resourcePack;
     ResidentSprite* backgroundSprite;
-    ResidentSprite* bulletSprite;
-    ResidentSprite* shooterSprite;
-    ResidentSprite* shipSprite;
     ResidentSprite* explosionSprite;
-    ResidentSprite* gemSprite;
 };
 
 } // namespace bullet_hell

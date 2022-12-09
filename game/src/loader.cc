@@ -58,9 +58,9 @@ bool Game::loadResourcePack()
 void Game::createSprites()
 {
     backgroundSprite = createSprite(resources::image::BACKGROUND);
-    bulletSprite = createSprite(resources::image::BULLET);
-    shooterSprite = createSprite(resources::image::SHOOTER);
-    shipSprite = createSprite(resources::image::SHIP);
+    Bullet::sprite = createSprite(resources::image::BULLET);
+    Shooter::sprite = createSprite(resources::image::SHOOTER);
+    Ship::sprite = createSprite(resources::image::SHIP);
     explosionSprite = createSprite(resources::image::EXPLOSION);
-    gemSprite = createSprite(resources::image::GEMS);
+    Gem::sprite = createSprite(resources::image::GEMS);
 }

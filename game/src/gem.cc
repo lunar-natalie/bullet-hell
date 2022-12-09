@@ -1,7 +1,7 @@
 /*
  * gem.cc
  *
- * Gem methods.
+ * Gem entity implementation.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -10,12 +10,24 @@
 
 #include "gem.h"
 
-#include "entity.h"
+#include <cstdlib>
+
+#include "moving_entity.h"
+#include "resident_sprite.h"
 
 using namespace bullet_hell;
 
-Gem::Gem(float x, float y, float dx, float dy, int type)
-    : Entity(x, y, dx, dy),
+ResidentSprite* Gem::sprite = nullptr;
+float Gem::spawnTimer;
+float Gem::spawnRate;
+
+Gem::Gem(float x, float y, float dx, float dy, Type type)
+    : MovingEntity(x, y, dx, dy),
       type{type}
 {
+}
+
+Gem::Type Gem::randomType()
+{
+    return static_cast<Type>(rand() % typeCount);
 }

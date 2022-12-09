@@ -17,7 +17,10 @@
 
 #include <olcPixelGameEngine.h>
 
+#include "direction.h"
+#include "gem.h"
 #include "math.h"
+#include "shooter.h"
 
 using namespace bullet_hell;
 
@@ -33,6 +36,25 @@ void Game::addBullets(size_t count, olc::vf2d start)
 
 void Game::process(float elapsedTime)
 {
+    if (shouldReset) {
+        srand(time(NULL));
+
+        timer = 0.0f;
+        frames = 0;
+
+        Gem::spawnTimer = 0.0f;
+        Shooter::spawnTimer = 0.0f;
+
+        ship->isAlive = true;
+        ship->position = {static_cast<float>(screenWidth) / 2.0f,
+                        static_cast<float>(screenHeight) - 100.0f};
+        ship->direction = Direction::NONE;
+        ship->velocity = {0.0f, 0.0f};
+        ship->acceleration = {0.0f, 0.0f};
+
+        shouldReset = false;
+    }
+
     timer += elapsedTime;
     ++frames;
     if (timer > 1.0f) {
@@ -43,54 +65,72 @@ void Game::process(float elapsedTime)
                   << " bullets, " << gems.size() << " gems." << std::endl;
     }
 
-    shooterSpawnTimer -= elapsedTime;
-    if (shooterSpawnTimer < 0) {
-        shooterSpawnTimer += 2;
+    Shooter::spawnTimer -= elapsedTime;
+    if (Shooter::spawnTimer < 0) {
+        Shooter::spawnTimer += 2;
         shooters.push_back(Shooter(math::randomMultiplier() * screenWidth, -20,
                                    0, 50, 0.25, 10));
     }
 
-    gemSpawnTimer -= elapsedTime;
-    if (gemSpawnTimer < 0) {
-        gemSpawnTimer += 0.5;
+    Gem::spawnTimer -= elapsedTime;
+    if (Gem::spawnTimer < 0) {
+        Gem::spawnTimer += 0.5;
         gems.push_back(Gem(math::randomMultiplier() * screenHeight, -20, 0, 100,
-                           rand() % 4));
+                           Gem::randomType()));
     }
 
-    if (shipAlive) {
-        shipVelocity += elapsedTime * shipAcceleration;
+    if (ship->isAlive) {
+        ship->acceleration.x = 0.0f;
+        ship->acceleration.y = 0.0f;
+        if (ship->direction != Direction::NONE) {
+            if (ship->direction & Direction::LEFT) {
+                ship->acceleration.x -= ship->accelerationModifier;
+            }
+            if (ship->direction & Direction::RIGHT) {
+                ship->acceleration.x += ship->accelerationModifier;
+            }
+            if (ship->direction & Direction::UP) {
+                ship->acceleration.y -= ship->accelerationModifier;
+            }
+            if (ship->direction & Direction::DOWN) {
+                ship->acceleration.y += ship->accelerationModifier;
+            }
+            ship->direction = Direction::NONE;
+        }
 
-        shipVelocity *= 1 - elapsedTime * deceleration;
+        ship->velocity += elapsedTime * ship->acceleration;
 
-        if (shipVelocity.x < -maxSpeed) {
-            shipVelocity.x = -maxSpeed;
-        }
-        if (shipVelocity.y < -maxSpeed) {
-            shipVelocity.y = -maxSpeed;
-        }
-        if (shipVelocity.x > maxSpeed) {
-            shipVelocity.x = maxSpeed;
-        }
-        if (shipVelocity.y > maxSpeed) {
-            shipVelocity.y = maxSpeed;
-        }
-        shipPosition += elapsedTime * shipVelocity;
+        ship->velocity *= 1 - elapsedTime * ship->decelerationModifier;
 
-        if (shipPosition.x < 25) {
-            shipPosition.x = 25;
-            shipVelocity.x = 0;
+        if (ship->velocity.x < -ship->maxSpeed) {
+            ship->velocity.x = -ship->maxSpeed;
         }
-        if (shipPosition.y < 25) {
-            shipPosition.y = 25;
-            shipVelocity.y = 0;
+        if (ship->velocity.y < -ship->maxSpeed) {
+            ship->velocity.y = -ship->maxSpeed;
         }
-        if (shipPosition.x > screenWidth - 25) {
-            shipPosition.x = screenWidth - 25;
-            shipVelocity.x = 0;
+        if (ship->velocity.x > ship->maxSpeed) {
+            ship->velocity.x = ship->maxSpeed;
         }
-        if (shipPosition.y > screenHeight - 25) {
-            shipPosition.y = screenHeight - 25;
-            shipVelocity.y = 0;
+        if (ship->velocity.y > ship->maxSpeed) {
+            ship->velocity.y = ship->maxSpeed;
+        }
+        ship->position += elapsedTime * ship->velocity;
+
+        if (ship->position.x < 25) {
+            ship->position.x = 25;
+            ship->velocity.x = 0;
+        }
+        if (ship->position.y < 25) {
+            ship->position.y = 25;
+            ship->velocity.y = 0;
+        }
+        if (ship->position.x > screenWidth - 25) {
+            ship->position.x = screenWidth - 25;
+            ship->velocity.x = 0;
+        }
+        if (ship->position.y > screenHeight - 25) {
+            ship->position.y = screenHeight - 25;
+            ship->velocity.y = 0;
         }
     }
     else {
@@ -106,12 +146,12 @@ void Game::process(float elapsedTime)
     }
 
     for (auto i = 0; i < bullets.size();) {
-        bool shipHit = pow(shipPosition.x - bullets[i].position.x, 2)
-                           + pow(shipPosition.y - bullets[i].position.y, 2)
+        bool shipHit = pow(ship->position.x - bullets[i].position.x, 2)
+                           + pow(ship->position.y - bullets[i].position.y, 2)
                        < pow(25, 2);
 
         if (shipHit) {
-            shipAlive = false;
+            ship->isAlive = false;
         }
 
         if (shipHit || bullets[i].position.x < -20
@@ -126,8 +166,8 @@ void Game::process(float elapsedTime)
     }
 
     for (auto i = 0; i < gems.size();) {
-        bool shipHit = pow(shipPosition.x - gems[i].position.x, 2)
-                           + pow(shipPosition.y - gems[i].position.y, 2)
+        bool shipHit = pow(ship->position.x - gems[i].position.x, 2)
+                           + pow(ship->position.y - gems[i].position.y, 2)
                        < pow(30, 2);
 
         if (shipHit || gems[i].position.x < -20 || gems[i].position.y < -20
@@ -142,9 +182,9 @@ void Game::process(float elapsedTime)
 
     for (auto& shooter : shooters) {
         shooter.position += elapsedTime * shooter.velocity;
-        shooter.timer -= elapsedTime;
-        if (shooter.timer < 0) {
-            shooter.timer += 1.0f / shooter.fireRate;
+        shooter.fireTimer -= elapsedTime;
+        if (shooter.fireTimer < 0) {
+            shooter.fireTimer += 1.0f / shooter.fireRate;
             addBullets(shooter.fireCount, shooter.position);
         }
     }

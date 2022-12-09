@@ -11,14 +11,26 @@
 #ifndef BULLET_HELL_GEM_H
 #define BULLET_HELL_GEM_H
 
-#include "entity.h"
+#include "moving_entity.h"
+#include "resident_sprite.h"
 
 namespace bullet_hell {
 
-struct Gem : public Entity {
-    int type;
+struct Gem : public MovingEntity {
+    static ResidentSprite* sprite;
+    enum class Type : unsigned int {
+        RED = 0,
+        YELLOW = 1,
+        GREEN = 2,
+        BLUE = 3
+    } type;
+    static constexpr const unsigned int typeCount = 4;
+    static float spawnTimer;
+    static float spawnRate;
 
-    Gem(float x, float y, float dx, float dy, int type);
+    Gem(float x, float y, float dx, float dy, Type type);
+
+    static Type randomType();
 };
 
 } // namespace bullet_hell

@@ -1,7 +1,7 @@
 /*
  * shooter.cc
  *
- * Shooter methods.
+ * Shooter entity implementation.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -10,15 +10,20 @@
 
 #include "shooter.h"
 
-#include "entity.h"
+#include "moving_entity.h"
+#include "resident_sprite.h"
 
 using namespace bullet_hell;
 
+ResidentSprite* Shooter::sprite = nullptr;
+float Shooter::spawnTimer;
+float Shooter::spawnRate;
+
 Shooter::Shooter(float x, float y, float dx, float dy, float fireRate,
                  unsigned int fireCount)
-    : Entity(x, y, dx, dy),
+    : MovingEntity(x, y, dx, dy),
       fireRate{fireRate},
       fireCount{fireCount}
 {
-    timer = 1.0f / fireRate;
+    fireTimer = 1.0f / fireRate;
 }

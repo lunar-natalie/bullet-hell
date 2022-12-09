@@ -1,7 +1,7 @@
 /*
  * entity.cc
  *
- * Base entity methods.
+ * Base entity implementation.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -12,8 +12,11 @@
 
 using namespace bullet_hell;
 
-Entity::Entity(float x, float y, float dx, float dy)
-    : position{x, y},
-      velocity{dx, dy}
+Entity::Entity()
+{
+}
+
+Entity::Entity(float x, float y)
+    : position{x, y}
 {
 }

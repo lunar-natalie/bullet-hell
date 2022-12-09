@@ -13,9 +13,11 @@ set(bullet_hell_SOURCES
     input.cc
     loader.cc
     main.cc
+    moving_entity.cc
     process.cc
     properties.cc
     resident_sprite.cc
+    ship.cc
     shooter.cc)
 
 list(TRANSFORM bullet_hell_SOURCES

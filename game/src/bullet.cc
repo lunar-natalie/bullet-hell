@@ -1,7 +1,7 @@
 /*
  * bullet.cc
  *
- * Bullet methods.
+ * Bullet entity implementation.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -10,11 +10,14 @@
 
 #include "bullet.h"
 
-#include "entity.h"
+#include "moving_entity.h"
+#include "resident_sprite.h"
 
 using namespace bullet_hell;
 
+ResidentSprite* Bullet::sprite = nullptr;
+
 Bullet::Bullet(float x, float y, float dx, float dy)
-    : Entity(x, y, dx, dy)
+    : MovingEntity(x, y, dx, dy)
 {
 }

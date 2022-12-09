@@ -1,7 +1,7 @@
 /*
  * entity.h
  *
- * Base entity object.
+ * Base position-only entity object.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -17,9 +17,9 @@ namespace bullet_hell {
 
 struct Entity {
     olc::vf2d position;
-    olc::vf2d velocity;
 
-    Entity(float x, float y, float dx, float dy);
+    Entity();
+    Entity(float x, float y);
 };
 
 } // namespace bullet_hell

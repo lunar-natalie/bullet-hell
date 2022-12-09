@@ -13,8 +13,10 @@
 #include <filesystem>
 #include <vector>
 
-#include "config.h"
 #include "bullet.h"
+#include "config.h"
+#include "gem.h"
+#include "ship.h"
 #include "shooter.h"
 
 using namespace bullet_hell;
@@ -29,22 +31,20 @@ Game::Game(int argc, char* argv[])
     }
 
     shouldExit = false;
+    shouldReset = true;
 
     timer = 0;
     frames = 0;
 
+    ship = new Ship();
+    ship->accelerationModifier = 3000.0f;
+    ship->decelerationModifier = 7.5f;
+    ship->maxSpeed = 1000.0f;
+
     bullets = std::vector<Bullet>();
     shooters = std::vector<Shooter>();
-    shooterSpawnTimer = 0;
-    gemSpawnTimer = 0;
+    gems = std::vector<Gem>();
 
-    shipVelocity = {0, 0};
-
-    acceleration = 3000;
-    deceleration = 7.5;
-    maxSpeed = 1000;
-
-    shipAlive = true;
     explosionTimer = 0;
     explosionFrames = 25;
     explosionFrameRate = 20;
