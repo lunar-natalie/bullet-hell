@@ -16,7 +16,7 @@
 
 namespace bullet_hell {
 
-struct Plasma : public MovingEntity {
+struct Plasma : MovingEntity {
     static Sprite* sprite;
     static const float startXOffset;
     static const float baseSpeed;

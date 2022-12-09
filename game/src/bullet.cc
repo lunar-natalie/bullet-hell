@@ -15,7 +15,7 @@
 
 using namespace bullet_hell;
 
-Sprite* Bullet::sprite = nullptr;
+Sprite* Bullet::sprite;
 
 Bullet::Bullet(float x, float y, float dx, float dy)
     : MovingEntity(x, y, dx, dy)

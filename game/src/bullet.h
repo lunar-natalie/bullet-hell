@@ -16,7 +16,7 @@
 
 namespace bullet_hell {
 
-struct Bullet : public MovingEntity {
+struct Bullet : MovingEntity {
     static Sprite* sprite;
 
     Bullet(float x, float y, float dx, float dy);

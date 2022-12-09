@@ -16,7 +16,7 @@
 
 namespace bullet_hell {
 
-struct Shooter : public MovingEntity {
+struct Shooter : MovingEntity {
     static Sprite* sprite;
     static float spawnTimer;
     static float spawnRate;

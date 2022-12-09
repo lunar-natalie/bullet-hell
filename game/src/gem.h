@@ -16,7 +16,7 @@
 
 namespace bullet_hell {
 
-struct Gem : public MovingEntity {
+struct Gem : MovingEntity {
     static Sprite* sprite;
     enum class Type : unsigned int {
         RED = 0,

@@ -17,7 +17,7 @@
 
 namespace bullet_hell {
 
-struct Sprite : public olc::Sprite {
+struct Sprite : olc::Sprite {
     olc::Decal* decal;
 
     Sprite(const std::string& imageFilename, olc::ResourcePack* pack = nullptr);

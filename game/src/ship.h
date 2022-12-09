@@ -19,7 +19,7 @@
 
 namespace bullet_hell {
 
-struct Ship : public MovingEntity {
+struct Ship : MovingEntity {
     static Sprite* sprite;
     olc::vf2d acceleration;
     Direction direction;

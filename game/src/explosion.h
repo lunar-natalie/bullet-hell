@@ -18,7 +18,7 @@
 
 namespace bullet_hell {
 
-struct Explosion : public Entity {
+struct Explosion : Entity {
     static Sprite* sprite;
     static unsigned int frameCount;
     static float frameRate;

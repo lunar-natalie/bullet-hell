@@ -17,7 +17,7 @@
 
 namespace bullet_hell {
 
-struct MovingEntity : public Entity {
+struct MovingEntity : Entity {
     olc::vf2d velocity;
 
     MovingEntity();
