@@ -5,7 +5,7 @@
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 
 #ifndef BULLET_HELL_RESIDENT_SPRITE_H
