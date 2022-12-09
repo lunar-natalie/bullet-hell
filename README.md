@@ -42,19 +42,19 @@ Farnborough C++ (SFC) Project.
 ## Supported platforms
 * Linux
 * Windows 7 or newer
-   * Use [MinGW][www-mingw] or [Cygwin][www-cygwin] for the development
-     toolchain.
+  * Use [MinGW][www-mingw] or [Cygwin][www-cygwin] for the development
+    toolchain.
 * macOS Catalina (10.15) or newer
-   * The development toolchain can be installed using the
-     [Xcode command line tools][www-xcode-resources].
-   * Required development packages for macOS can be installed using
-     [Homebrew][www-homebrew].
-   * Note: OpenGL was deprecated in macOS 10.14 and official support from
-     Apple has been retired (see [About OpenGL for OS X][www-apple-opengl]).
+  * The development toolchain can be installed using the
+    [Xcode command line tools][www-xcode-resources].
+  * Required development packages for macOS can be installed using
+    [Homebrew][www-homebrew].
+  * Note: OpenGL was deprecated in macOS 10.14 and official support from Apple
+    has been retired (see [About OpenGL for OS X][www-apple-opengl]).
 
 ## Requirements
 * [OpenGL][www-opengl] >= 1.0
-   * [Mesa][www-mesa] (Recommended implementation for Linux)
+  * [Mesa][www-mesa] (Recommended implementation for Linux)
 * [X11][www-x-org] (Linux)
 * [libpng][www-libpng] (Linux, macOS)
 
@@ -75,7 +75,7 @@ Workflow:
 * Configure the workspace for CMake when prompted, or run the `CMake: Configure`
   command. Use `bullet_hell` as the default target.
 * `Tasks: Run Build Task`
-   * Default shortcut: `Ctrl/Cmd+Shift+B`
+  * Default shortcut: `Ctrl/Cmd+Shift+B`
 
 Cleaning the build environment:
 * `CMake: Clean` or `CMake: Clean Rebuild`
@@ -110,7 +110,7 @@ rm -rf build
 ### VS Code
 Workflow:
 * `CMake: Run Without Debugging`
-   * Default shortcut: `Shift+F5`
+  * Default shortcut: `Shift+F5`
 
 ### Standalone
 ```shell
@@ -124,7 +124,7 @@ build/bullet-hell
 ### VS Code
 Workflow:
 * `CMake: Debug`
-   * Default shortcut: `Ctrl/Cmd+F5`
+  * Default shortcut: `Ctrl/Cmd+F5`
 
 ## Installation
 See the following instructions to install or uninstall the game after
@@ -176,25 +176,20 @@ cmake --build build --target uninstall
 ## License
 Copyright (c) 2022 The SFC Project Authors.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-See [`AUTHORS`](AUTHORS) for more information.
+See [`LICENSE`](LICENSE) and [`AUTHORS`](AUTHORS) for more information.
 
 ## Library licenses
 ### olcPixelGameEngine (OLC-3)
@@ -234,18 +229,26 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Listed paths are relative to the [`assets`](assets/) directory in the source
 distribution, and are relative to the default resource pack at runtime:
 * [`background.png`](assets/background.png)
-   * Image by [Jeremy Thomas][www-jeremy-thomas]
-   * License: [Unsplash][www-unsplash-license]
+  * Image by [Jeremy Thomas][www-jeremy-thomas]
+  * License: [Unsplash][www-unsplash-license]
 * [`bullet.png`](assets/bullet.png)
-   * License: Public domain
+  * Artist: Unknown
+  * License: Public domain
 * [`explosion.png`](assets/explosion.png)
-   * License: Unknown / Public domain
+  * Artist: Unknown
+  * License: Unknown / Public domain
 * [`gems.png`](assets/gems.png)
-   * License: Unknown / Public domain
+  * Artist: Unknown
+  * License: Unknown / Public domain
+* [`plasma.png`](assets/plasma.png)
+  * Artist: Unknown
+  * License: Free for non-commercial use
 * [`ship.png`](assets/ship.png)
-   * License: Unknown / Public domain
+  * Artist: Unknown
+  * License: Unknown / Public domain
 * [`shooter.png`](assets/shooter.png)
-   * License: Free for non-commercial use
+  * Artist: Unknown
+  * License: Free for non-commercial use
 
 
 [www-apple-opengl]: https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_intro/opengl_intro.html#//apple_ref/doc/uid/TP40001987-CH207-TP9
