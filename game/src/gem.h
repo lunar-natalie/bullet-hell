@@ -11,7 +11,7 @@
 #ifndef BULLET_HELL_ENTITY_GEM_H
 #define BULLET_HELL_ENTITY_GEM_H
 
-#include "base.h"
+#include "entity.h"
 
 namespace bullet_hell {
 

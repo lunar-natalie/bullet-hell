@@ -10,7 +10,7 @@
 
 #include "bullet.h"
 
-#include "base.h"
+#include "entity.h"
 
 using namespace bullet_hell;
 

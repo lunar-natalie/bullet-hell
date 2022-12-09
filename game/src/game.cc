@@ -14,8 +14,8 @@
 #include <vector>
 
 #include "config.h"
-#include "entity/bullet.h"
-#include "entity/shooter.h"
+#include "bullet.h"
+#include "shooter.h"
 
 using namespace bullet_hell;
 

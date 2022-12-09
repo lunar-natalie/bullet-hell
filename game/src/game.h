@@ -19,9 +19,9 @@
 
 #include <olcPixelGameEngine.h>
 
-#include "entity/bullet.h"
-#include "entity/gem.h"
-#include "entity/shooter.h"
+#include "bullet.h"
+#include "gem.h"
+#include "shooter.h"
 #include "resident_sprite.h"
 
 namespace bullet_hell {

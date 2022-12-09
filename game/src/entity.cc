@@ -1,5 +1,5 @@
 /*
- * base.cc
+ * entity.cc
  *
  * Base entity methods.
  *
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-#include "base.h"
+#include "entity.h"
 
 using namespace bullet_hell;
 

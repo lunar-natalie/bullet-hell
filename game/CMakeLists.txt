@@ -4,19 +4,19 @@ configure_file(${bullet_hell_CODE_SOURCE_DIR}/config.h.in
     ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 set(bullet_hell_SOURCES
+    bullet.cc
     draw.cc
-    entity/base.cc
-    entity/bullet.cc
-    entity/gem.cc
-    entity/shooter.cc
+    entity.cc
     events.cc
     game.cc
+    gem.cc
     input.cc
     loader.cc
     main.cc
     process.cc
     properties.cc
-    resident_sprite.cc)
+    resident_sprite.cc
+    shooter.cc)
 
 list(TRANSFORM bullet_hell_SOURCES
     PREPEND ${bullet_hell_CODE_SOURCE_DIR}/)

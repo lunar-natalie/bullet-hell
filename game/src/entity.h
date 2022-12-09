@@ -1,5 +1,5 @@
 /*
- * base.h
+ * entity.h
  *
  * Base entity object.
  *
