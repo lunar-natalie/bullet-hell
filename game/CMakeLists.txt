@@ -8,6 +8,7 @@ set(bullet_hell_SOURCES
     draw.cc
     entity.cc
     events.cc
+    explosion.cc
     game.cc
     gem.cc
     input.cc

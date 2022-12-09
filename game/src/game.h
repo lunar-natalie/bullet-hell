@@ -20,6 +20,7 @@
 #include <olcPixelGameEngine.h>
 
 #include "bullet.h"
+#include "explosion.h"
 #include "gem.h"
 #include "resident_sprite.h"
 #include "ship.h"
@@ -61,17 +62,13 @@ private:
     unsigned int fps;
 
     Ship* ship;
-    std::vector<Bullet> bullets;
-    std::vector<Shooter> shooters;
-    std::vector<Gem> gems;
-
-    float explosionTimer;
-    unsigned int explosionFrames;
-    unsigned int explosionFrameRate;
+    std::vector<Bullet*> bullets;
+    std::vector<Shooter*> shooters;
+    std::vector<Gem*> gems;
+    std::vector<Explosion*> explosions;
 
     olc::ResourcePack* resourcePack;
     ResidentSprite* backgroundSprite;
-    ResidentSprite* explosionSprite;
 };
 
 } // namespace bullet_hell

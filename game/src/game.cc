@@ -15,6 +15,7 @@
 
 #include "bullet.h"
 #include "config.h"
+#include "explosion.h"
 #include "gem.h"
 #include "ship.h"
 #include "shooter.h"
@@ -41,11 +42,8 @@ Game::Game(int argc, char* argv[])
     ship->decelerationModifier = 7.5f;
     ship->maxSpeed = 1000.0f;
 
-    bullets = std::vector<Bullet>();
-    shooters = std::vector<Shooter>();
-    gems = std::vector<Gem>();
-
-    explosionTimer = 0;
-    explosionFrames = 25;
-    explosionFrameRate = 20;
+    bullets = std::vector<Bullet*>();
+    shooters = std::vector<Shooter*>();
+    gems = std::vector<Gem*>();
+    explosions = std::vector<Explosion*>();
 }

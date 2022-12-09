@@ -16,6 +16,7 @@
 #include <olcPixelGameEngine.h>
 
 #include "bullet.h"
+#include "explosion.h"
 #include "gem.h"
 #include "math.h"
 #include "ship.h"
@@ -35,7 +36,7 @@ void Game::draw()
                                    (float) Bullet::sprite->height / 2};
 
     for (const auto& bullet : bullets) {
-        DrawDecal(bullet.position - centrePoint, Bullet::sprite->decal,
+        DrawDecal(bullet->position - centrePoint, Bullet::sprite->decal,
                   olc::vf2d{scale, scale});
     }
 
@@ -45,7 +46,7 @@ void Game::draw()
                               (float) Shooter::sprite->height / 2};
 
     for (const auto& shooter : shooters) {
-        DrawDecal(shooter.position - centrePoint, Shooter::sprite->decal,
+        DrawDecal(shooter->position - centrePoint, Shooter::sprite->decal,
                   olc::vf2d{scale, scale});
     }
 
@@ -56,8 +57,8 @@ void Game::draw()
 
     for (const auto& gem : gems) {
         DrawPartialDecal(
-            gem.position - centrePoint, Gem::sprite->decal,
-            olc::vf2d{static_cast<float>(gem.type) * gemSize, 0},
+            gem->position - centrePoint, Gem::sprite->decal,
+            olc::vf2d{static_cast<float>(gem->type) * gemSize, 0},
             olc::vf2d{gemSize * scale, Gem::sprite->height * scale});
     }
 
@@ -70,14 +71,16 @@ void Game::draw()
         DrawDecal(ship->position - centrePoint, Ship::sprite->decal,
                   olc::vf2d{scale, scale});
     }
-    else if (explosionTimer < explosionFrames / explosionFrameRate) {
-        float explosionSize = (float) explosionSprite->width / explosionFrames;
-        int explosionFrame = explosionTimer * explosionFrameRate;
+
+    for (const auto& explosion : explosions) {
+        float explosionSize =
+            (float) Explosion::sprite->width / Explosion::frameCount;
+        int explosionFrame = explosion->timer * Explosion::frameRate;
         centrePoint = olc::vf2d{explosionSize / 2, explosionSize / 2};
 
-        DrawPartialDecal(ship->position - centrePoint,
+        DrawPartialDecal(explosion->position - centrePoint,
                          olc::vf2d{explosionSize, explosionSize},
-                         explosionSprite->decal,
+                         Explosion::sprite->decal,
                          olc::vf2d{explosionFrame * explosionSize, 0},
                          olc::vf2d{explosionSize, explosionSize});
     }

@@ -16,16 +16,16 @@
 
 #include <olcPixelGameEngine.h>
 
+#include "bullet.h"
 #include "config.h"
+#include "explosion.h"
+#include "gem.h"
 #include "resident_sprite.h"
 #include "resources.h"
+#include "ship.h"
+#include "shooter.h"
 
 using namespace bullet_hell;
-
-ResidentSprite* Game::createSprite(const std::string& filename) const
-{
-    return new ResidentSprite(filename, resourcePack);
-}
 
 bool Game::loadResourcePack()
 {
@@ -61,6 +61,13 @@ void Game::createSprites()
     Bullet::sprite = createSprite(resources::image::BULLET);
     Shooter::sprite = createSprite(resources::image::SHOOTER);
     Ship::sprite = createSprite(resources::image::SHIP);
-    explosionSprite = createSprite(resources::image::EXPLOSION);
+    Explosion::sprite = createSprite(resources::image::EXPLOSION);
     Gem::sprite = createSprite(resources::image::GEMS);
+
+    Explosion::frameCount = 25;
+}
+
+ResidentSprite* Game::createSprite(const std::string& filename) const
+{
+    return new ResidentSprite(filename, resourcePack);
 }
