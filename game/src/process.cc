@@ -75,7 +75,7 @@ void Game::process(float elapsedTime)
     Gem::spawnTimer -= elapsedTime;
     if (Gem::spawnTimer < 0) {
         Gem::spawnTimer += 0.5;
-        gems.push_back(Gem(math::randomMultiplier() * screenHeight, -20, 0, 100,
+        gems.push_back(Gem(math::randomMultiplier() * screenWidth, -20, 0, 100,
                            Gem::randomType()));
     }
 
