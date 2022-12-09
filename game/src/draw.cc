@@ -19,6 +19,7 @@
 #include "explosion.h"
 #include "gem.h"
 #include "math.h"
+#include "plasma.h"
 #include "ship.h"
 #include "shooter.h"
 
@@ -37,6 +38,16 @@ void Game::draw()
 
     for (const auto& bullet : bullets) {
         DrawDecal(bullet->position - centrePoint, Bullet::sprite->decal,
+                  olc::vf2d{scale, scale});
+    }
+
+    scale = 0.1333;
+    centrePoint = scale
+                  * olc::vf2d{(float) Plasma::sprite->width / 2,
+                              (float) Plasma::sprite->height / 2};
+
+    for (const auto& plasma : plasmas) {
+        DrawDecal(plasma->position - centrePoint, Plasma::sprite->decal,
                   olc::vf2d{scale, scale});
     }
 

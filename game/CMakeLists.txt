@@ -15,6 +15,7 @@ set(bullet_hell_SOURCES
     loader.cc
     main.cc
     moving_entity.cc
+    plasma.cc
     process.cc
     properties.cc
     resident_sprite.cc

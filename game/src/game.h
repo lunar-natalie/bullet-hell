@@ -22,6 +22,7 @@
 #include "bullet.h"
 #include "explosion.h"
 #include "gem.h"
+#include "plasma.h"
 #include "resident_sprite.h"
 #include "ship.h"
 #include "shooter.h"
@@ -66,6 +67,7 @@ private:
     std::vector<Shooter*> shooters;
     std::vector<Gem*> gems;
     std::vector<Explosion*> explosions;
+    std::vector<Plasma*> plasmas;
 
     olc::ResourcePack* resourcePack;
     ResidentSprite* backgroundSprite;

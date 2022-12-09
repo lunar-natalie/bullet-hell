@@ -17,6 +17,7 @@
 #include "config.h"
 #include "explosion.h"
 #include "gem.h"
+#include "plasma.h"
 #include "ship.h"
 #include "shooter.h"
 
@@ -46,4 +47,5 @@ Game::Game(int argc, char* argv[])
     shooters = std::vector<Shooter*>();
     gems = std::vector<Gem*>();
     explosions = std::vector<Explosion*>();
+    plasmas = std::vector<Plasma*>();
 }

@@ -40,4 +40,6 @@ void Game::input()
     if (GetKey(olc::Key::DOWN).bHeld) {
         ship->direction |= Direction::DOWN;
     }
+
+    ship->isFiring = GetKey(olc::Key::SPACE).bHeld;
 }

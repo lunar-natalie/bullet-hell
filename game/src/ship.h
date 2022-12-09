@@ -27,6 +27,8 @@ struct Ship : public MovingEntity {
     float decelerationModifier;
     float maxSpeed;
     bool isAlive;
+    bool isFiring;
+    float reloadTimer;
 
     Ship();
 };

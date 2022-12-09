@@ -20,6 +20,7 @@
 #include "config.h"
 #include "explosion.h"
 #include "gem.h"
+#include "plasma.h"
 #include "resident_sprite.h"
 #include "resources.h"
 #include "ship.h"
@@ -63,6 +64,7 @@ void Game::createSprites()
     Ship::sprite = createSprite(resources::image::SHIP);
     Explosion::sprite = createSprite(resources::image::EXPLOSION);
     Gem::sprite = createSprite(resources::image::GEMS);
+    Plasma::sprite = createSprite(resources::image::PLASMA);
 
     Explosion::frameCount = 25;
 }

@@ -20,6 +20,7 @@
 #include "direction.h"
 #include "gem.h"
 #include "math.h"
+#include "plasma.h"
 #include "shooter.h"
 
 using namespace bullet_hell;
@@ -52,6 +53,8 @@ void Game::process(float elapsedTime)
         ship->direction = Direction::NONE;
         ship->velocity = {0.0f, 0.0f};
         ship->acceleration = {0.0f, 0.0f};
+        ship->isFiring = false;
+        ship->reloadTimer = 0.0f;
 
         shouldReset = false;
     }
@@ -133,6 +136,14 @@ void Game::process(float elapsedTime)
             ship->position.y = screenHeight - 25;
             ship->velocity.y = 0;
         }
+
+        ship->reloadTimer -= elapsedTime;
+        if (ship->isFiring && ship->reloadTimer < 0.0f) {
+            ship->reloadTimer = 0.1f;
+            plasmas.push_back(new Plasma(
+                ship->position.x, ship->position.y + Plasma::startXOffset, 0.0f,
+                -Plasma::baseSpeed));
+        }
     }
 
     for (auto& bullet : bullets) {
@@ -141,6 +152,10 @@ void Game::process(float elapsedTime)
 
     for (auto& gem : gems) {
         gem->position += elapsedTime * gem->velocity;
+    }
+
+    for (auto& plasma : plasmas) {
+        plasma->position += elapsedTime * plasma->velocity;
     }
 
     for (auto i = 0; i < explosions.size();) {
@@ -172,6 +187,36 @@ void Game::process(float elapsedTime)
             explosions.push_back(
                 new Explosion(ship->position.x, ship->position.y));
             break;
+        }
+    }
+
+    for (auto i = 0; i < plasmas.size();) {
+        bool shooterHit = false;
+
+        for (auto j = 0; j < shooters.size();) {
+            shooterHit =
+                pow(shooters[j]->position.x - plasmas[i]->position.x, 2)
+                    + pow(shooters[j]->position.y - plasmas[i]->position.y, 2)
+                < pow(25, 2);
+            if (shooterHit) {
+                explosions.push_back(new Explosion{shooters[j]->position.x,
+                                                   shooters[j]->position.y});
+                shooters.erase(shooters.begin() + j);
+                break;
+            }
+            else {
+                j++;
+            }
+        }
+
+        if (shooterHit || plasmas[i]->position.x < -20
+            || plasmas[i]->position.y < -20
+            || plasmas[i]->position.x > screenWidth + 20
+            || plasmas[i]->position.y > screenHeight + 20) {
+            plasmas.erase(plasmas.begin() + i);
+        }
+        else {
+            i++;
         }
     }
 

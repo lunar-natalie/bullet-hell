@@ -21,6 +21,7 @@ constexpr const char* BACKGROUND = "background.png";
 constexpr const char* BULLET = "bullet.png";
 constexpr const char* EXPLOSION = "explosion.png";
 constexpr const char* GEMS = "gems.png";
+constexpr const char* PLASMA = "plasma.png";
 constexpr const char* SHIP = "ship.png";
 constexpr const char* SHOOTER = "shooter.png";
 
