@@ -19,13 +19,19 @@ namespace bullet_hell {
 struct Shooter : MovingEntity {
     static Sprite* sprite;
     static float spawnTimer;
-    static float spawnRate;
+    static float spawnInterval;
+    static float startY;
+    static float defaultXVelocity;
+    static float defaultYVelocity;
+    static float defaultFireRate;
+    static unsigned int defaultFireCount;
     float fireRate;
     unsigned int fireCount;
     float fireTimer;
 
-    Shooter(float x, float y, float dx, float dy, float fireRate,
-            unsigned int fireCount);
+    Shooter(float x, float y = startY, float dx = defaultXVelocity,
+            float dy = defaultYVelocity, float fireRate = defaultFireRate,
+            unsigned int fireCount = defaultFireCount);
 };
 
 } // namespace bullet_hell

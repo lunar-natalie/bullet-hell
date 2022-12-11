@@ -21,6 +21,7 @@ set(bullet_hell_SOURCES
     reset.cc
     ship.cc
     shooter.cc
+    spawn.cc
     sprite.cc)
 
 list(TRANSFORM bullet_hell_SOURCES

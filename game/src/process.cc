@@ -51,19 +51,7 @@ void Game::process()
                   << " bullets, " << gems.size() << " gems." << std::endl;
     }
 
-    Shooter::spawnTimer -= elapsedTime;
-    if (Shooter::spawnTimer < 0) {
-        Shooter::spawnTimer += 2;
-        shooters.push_back(new Shooter(math::randomMultiplier() * screenWidth,
-                                       -20, 0, 50, 0.25, 10));
-    }
-
-    Gem::spawnTimer -= elapsedTime;
-    if (Gem::spawnTimer < 0) {
-        Gem::spawnTimer += 0.5;
-        gems.push_back(new Gem(math::randomMultiplier() * screenWidth, -20, 0,
-                               100, Gem::randomType()));
-    }
+    spawnEntities();
 
     if (ship->isAlive) {
         ship->acceleration.x = 0.0f;

@@ -26,9 +26,13 @@ struct Gem : MovingEntity {
     } type;
     static constexpr const unsigned int typeCount = 4;
     static float spawnTimer;
-    static float spawnRate;
+    static float spawnInterval;
+    static float startY;
+    static float defaultXVelocity;
+    static float defaultYVelocity;
 
-    Gem(float x, float y, float dx, float dy, Type type);
+    Gem(Type type, float x, float y = startY, float dx = defaultXVelocity,
+        float dy = defaultYVelocity);
 
     static Type randomType();
 };

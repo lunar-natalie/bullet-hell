@@ -19,9 +19,12 @@ using namespace bullet_hell;
 
 Sprite* Gem::sprite = nullptr;
 float Gem::spawnTimer;
-float Gem::spawnRate;
+float Gem::spawnInterval = 0.5f;
+float Gem::startY = -20.0f;
+float Gem::defaultXVelocity = 0.0f;
+float Gem::defaultYVelocity = 100.0f;
 
-Gem::Gem(float x, float y, float dx, float dy, Type type)
+Gem::Gem(Type type, float x, float y, float dx, float dy)
     : MovingEntity(x, y, dx, dy),
       type{type}
 {

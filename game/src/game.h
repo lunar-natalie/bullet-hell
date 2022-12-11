@@ -43,14 +43,14 @@ private:
     void process();
     void draw();
 
-    void updateScreenDimensions();
-
     bool loadResourcePack();
     void createSprites();
     Sprite* createSprite(const std::string& filename) const;
 
-    void reset();
+    void updateScreenDimensions();
     void updateFrameProperties();
+    void reset();
+    void spawnEntities();
     void addBullets(size_t count, olc::vf2d start);
 
     std::filesystem::path execPath;
