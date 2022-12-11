@@ -1,7 +1,7 @@
 /*
  * properties.cc
  *
- * Utilities for setting runtime-dependent properties on the game instance.
+ * Routines for setting miscellaneous properties on the game instance.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *
@@ -18,4 +18,17 @@ void Game::updateScreenDimensions()
 {
     screenWidth = ScreenWidth();
     screenHeight = ScreenHeight();
+}
+
+void Game::updateFrameProperties()
+{
+    shouldShowStats = false;
+    frameTimer += elapsedTime;
+    ++elapsedFrames;
+    if (frameTimer > 1.0f) {
+        shouldShowStats = true;
+        fps = elapsedFrames;
+        elapsedFrames = 0;
+        --frameTimer;
+    }
 }

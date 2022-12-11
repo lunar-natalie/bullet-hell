@@ -40,7 +40,7 @@ public:
 
 private:
     void input();
-    void process(float elapsedTime);
+    void process();
     void draw();
 
     void updateScreenDimensions();
@@ -50,16 +50,19 @@ private:
     Sprite* createSprite(const std::string& filename) const;
 
     void reset();
+    void updateFrameProperties();
     void addBullets(size_t count, olc::vf2d start);
 
     std::filesystem::path execPath;
 
     bool shouldReset;
     bool shouldExit;
+    bool shouldShowStats;
 
     int32_t screenWidth;
     int32_t screenHeight;
 
+    float elapsedTime;
     float frameTimer;
     unsigned int elapsedFrames;
     unsigned int fps;

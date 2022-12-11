@@ -36,19 +36,17 @@ void Game::addBullets(size_t count, olc::vf2d start)
     }
 }
 
-void Game::process(float elapsedTime)
+void Game::process()
 {
+    updateScreenDimensions();
+    updateFrameProperties();
+
     if (shouldReset) {
         reset();
         shouldReset = false;
     }
 
-    frameTimer += elapsedTime;
-    ++elapsedFrames;
-    if (frameTimer > 1.0f) {
-        fps = elapsedFrames;
-        elapsedFrames = 0;
-        --frameTimer;
+    if (shouldShowStats) {
         std::cout << shooters.size() << " shooters, " << bullets.size()
                   << " bullets, " << gems.size() << " gems." << std::endl;
     }

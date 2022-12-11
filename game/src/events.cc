@@ -16,7 +16,6 @@ using namespace bullet_hell;
 
 bool Game::OnUserCreate()
 {
-    // Load resources from resource pack
     if (loadResourcePack()) {
         createSprites();
     }
@@ -24,18 +23,15 @@ bool Game::OnUserCreate()
         std::cerr << "Failed to load resource pack.";
     }
 
-    // Set variables after GL initialization
-    updateScreenDimensions();
-
     return true;
 }
 
 bool Game::OnUserUpdate(float fElapsedTime)
 {
-    updateScreenDimensions();
+    elapsedTime = fElapsedTime;
 
     input();
-    process(fElapsedTime);
+    process();
     draw();
 
     return !shouldExit;
