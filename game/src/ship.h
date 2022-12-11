@@ -21,6 +21,9 @@ namespace bullet_hell {
 
 struct Ship : MovingEntity {
     static Sprite* sprite;
+    static const float defaultAccelerationModifier;
+    static const float defaultDecelerationModifier;
+    static const float defaultMaxSpeed;
     olc::vf2d acceleration;
     Direction direction;
     float accelerationModifier;

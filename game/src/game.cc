@@ -39,9 +39,6 @@ Game::Game(int argc, char* argv[])
     frames = 0;
 
     ship = new Ship();
-    ship->accelerationModifier = 3000.0f;
-    ship->decelerationModifier = 7.5f;
-    ship->maxSpeed = 1000.0f;
 
     bullets = std::vector<Bullet*>();
     shooters = std::vector<Shooter*>();

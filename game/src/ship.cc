@@ -14,8 +14,14 @@
 
 using namespace bullet_hell;
 
-Sprite* Ship::sprite = nullptr;
+Sprite* Ship::sprite;
+const float Ship::defaultAccelerationModifier = 3000.0f;
+const float Ship::defaultDecelerationModifier = 7.5f;
+const float Ship::defaultMaxSpeed = 1000.0f;
 
 Ship::Ship()
+    : accelerationModifier{defaultAccelerationModifier},
+      decelerationModifier{defaultDecelerationModifier},
+      maxSpeed{defaultMaxSpeed}
 {
 }
