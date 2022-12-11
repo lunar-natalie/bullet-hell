@@ -33,10 +33,10 @@ void Game::addBullets(unsigned int count, olc::vf2d startPosition)
 {
     float offset = static_cast<float>(math::TWO_PI) * math::randomMultiplier();
     for (auto i = 0; i < count; ++i) {
-        float x = (static_cast<float>(math::TWO_PI)
-                   * (static_cast<float>(i) / static_cast<float>(count)))
-                  + offset;
+        float theta = (static_cast<float>(math::TWO_PI)
+                       * (static_cast<float>(i) / static_cast<float>(count)))
+                      + offset;
         bullets.push_back(new Bullet(startPosition.x, startPosition.y,
-                                     100.0f * cos(x), 100.0f * sin(x)));
+                                     100.0f * cos(theta), 100.0f * sin(theta)));
     }
 }
