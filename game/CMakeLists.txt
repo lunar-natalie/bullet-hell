@@ -18,6 +18,7 @@ set(bullet_hell_SOURCES
     plasma.cc
     process.cc
     properties.cc
+    reset.cc
     ship.cc
     shooter.cc
     sprite.cc)

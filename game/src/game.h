@@ -49,6 +49,7 @@ private:
     void createSprites();
     Sprite* createSprite(const std::string& filename) const;
 
+    void reset();
     void addBullets(size_t count, olc::vf2d start);
 
     std::filesystem::path execPath;

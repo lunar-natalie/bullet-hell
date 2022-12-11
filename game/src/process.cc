@@ -39,23 +39,7 @@ void Game::addBullets(size_t count, olc::vf2d start)
 void Game::process(float elapsedTime)
 {
     if (shouldReset) {
-        srand(time(NULL));
-
-        frameTimer = 0.0f;
-        elapsedFrames = 0;
-
-        Gem::spawnTimer = 0.0f;
-        Shooter::spawnTimer = 0.0f;
-
-        ship->isAlive = true;
-        ship->position = {static_cast<float>(screenWidth) / 2.0f,
-                          static_cast<float>(screenHeight) - 100.0f};
-        ship->direction = Direction::NONE;
-        ship->velocity = {0.0f, 0.0f};
-        ship->acceleration = {0.0f, 0.0f};
-        ship->isFiring = false;
-        ship->reloadTimer = 0.0f;
-
+        reset();
         shouldReset = false;
     }
 
