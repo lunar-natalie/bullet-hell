@@ -15,9 +15,9 @@
 
 using namespace bullet_hell;
 
-Sprite* Plasma::sprite = nullptr;
-const float Plasma::startXOffset = -40.0f;
-const float Plasma::baseSpeed = 500.0f;
+Sprite* Plasma::sprite;
+float Plasma::startXOffset = -40.0f;
+float Plasma::baseSpeed = 500.0f;
 
 Plasma::Plasma(float x, float y, float dx, float dy)
     : MovingEntity(x, y, dx, dy)

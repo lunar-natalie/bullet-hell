@@ -5,6 +5,7 @@ configure_file(${bullet_hell_CODE_SOURCE_DIR}/config.h.in
 
 set(bullet_hell_SOURCES
     bullet.cc
+    collision.cc
     draw.cc
     entity.cc
     events.cc
@@ -15,14 +16,17 @@ set(bullet_hell_SOURCES
     loader.cc
     main.cc
     moving_entity.cc
+    partial_sprite.cc
     plasma.cc
     process.cc
+    projectiles.cc
     properties.cc
     reset.cc
     ship.cc
     shooter.cc
     spawn.cc
-    sprite.cc)
+    sprite.cc
+    trajectories.cc)
 
 list(TRANSFORM bullet_hell_SOURCES
     PREPEND ${bullet_hell_CODE_SOURCE_DIR}/)

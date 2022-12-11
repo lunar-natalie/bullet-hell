@@ -10,11 +10,8 @@
 
 #include "game.h"
 
-#include <iostream>
-
 #include <olcPixelGameEngine.h>
 
-#include "config.h"
 #include "direction.h"
 
 using namespace bullet_hell;

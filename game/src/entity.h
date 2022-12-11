@@ -19,6 +19,7 @@ struct Entity {
     olc::vf2d position;
 
     Entity();
+
     Entity(float x, float y);
 };
 

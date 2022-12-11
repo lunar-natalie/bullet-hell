@@ -19,8 +19,12 @@ namespace bullet_hell {
 
 struct Sprite : olc::Sprite {
     olc::Decal* decal;
+    olc::vf2d centerPoint;
 
-    Sprite(const std::string& imageFilename, olc::ResourcePack* pack = nullptr);
+    Sprite();
+
+    Sprite(const std::string& imageFilename, olc::ResourcePack* pack = nullptr,
+           bool setCenterPoint = true);
 };
 
 } // namespace bullet_hell

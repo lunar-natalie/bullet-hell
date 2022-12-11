@@ -11,7 +11,6 @@
 #ifndef BULLET_HELL_GAME_H
 #define BULLET_HELL_GAME_H
 
-#include <cstddef>
 #include <cstdint>
 
 #include <filesystem>
@@ -21,8 +20,10 @@
 #include <olcPixelGameEngine.h>
 
 #include "bullet.h"
+#include "entity.h"
 #include "explosion.h"
 #include "gem.h"
+#include "partial_sprite.h"
 #include "plasma.h"
 #include "ship.h"
 #include "shooter.h"
@@ -45,13 +46,26 @@ private:
 
     bool loadResourcePack();
     void createSprites();
+
     Sprite* createSprite(const std::string& filename) const;
+    PartialSprite* createPartialSprite(const std::string& filename) const;
 
     void updateScreenDimensions();
     void updateFrameProperties();
     void reset();
     void spawnEntities();
-    void addBullets(size_t count, olc::vf2d start);
+    void updateShipTrajectory();
+    void updateShipFire();
+    void updateNonPlayerEntityTrajectories();
+
+    bool checkCollision(const Entity* source, const Entity* target) const;
+    bool checkBounds(const Entity* entity) const;
+
+    void addBullets(unsigned int count, olc::vf2d start);
+
+    void draw(const Entity* entity, Sprite* sprite, float scale = 1.0f);
+    void drawHorizontalPartial(const Entity* entity, PartialSprite* sprite,
+                               unsigned int frameIndex, float scale = 1.0f);
 
     std::filesystem::path execPath;
 

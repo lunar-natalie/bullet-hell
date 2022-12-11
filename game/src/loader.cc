@@ -20,11 +20,12 @@
 #include "config.h"
 #include "explosion.h"
 #include "gem.h"
+#include "partial_sprite.h"
 #include "plasma.h"
-#include "sprite.h"
 #include "resources.h"
 #include "ship.h"
 #include "shooter.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
@@ -62,14 +63,30 @@ void Game::createSprites()
     Bullet::sprite = createSprite(resources::image::BULLET);
     Shooter::sprite = createSprite(resources::image::SHOOTER);
     Ship::sprite = createSprite(resources::image::SHIP);
-    Explosion::sprite = createSprite(resources::image::EXPLOSION);
-    Gem::sprite = createSprite(resources::image::GEMS);
+    Explosion::sprite = createPartialSprite(resources::image::EXPLOSION);
+    Gem::sprite = createPartialSprite(resources::image::GEMS);
     Plasma::sprite = createSprite(resources::image::PLASMA);
 
-    Explosion::frameCount = 25;
+    Explosion::sprite->frameCount = 25;
+    Explosion::sprite->frameSize = {
+        static_cast<float>(Explosion::sprite->width)
+            / static_cast<float>(Explosion::sprite->frameCount),
+        static_cast<float>(Explosion::sprite->height)};
+    Explosion::sprite->centerPoint = Explosion::sprite->frameSize / 2.0f;
+
+    Gem::sprite->frameCount = Gem::typeCount;
+    Gem::sprite->frameSize = {static_cast<float>(Gem::sprite->width)
+                                  / static_cast<float>(Gem::sprite->frameCount),
+                              static_cast<float>(Gem::sprite->height)};
+    Gem::sprite->centerPoint = Gem::sprite->frameSize / 2.0f;
 }
 
 Sprite* Game::createSprite(const std::string& filename) const
 {
     return new Sprite(filename, resourcePack);
+}
+
+PartialSprite* Game::createPartialSprite(const std::string& filename) const
+{
+    return new PartialSprite(filename, resourcePack);
 }

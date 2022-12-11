@@ -18,8 +18,8 @@ namespace bullet_hell {
 
 struct Plasma : MovingEntity {
     static Sprite* sprite;
-    static const float startXOffset;
-    static const float baseSpeed;
+    static float startXOffset;
+    static float baseSpeed;
 
     Plasma(float x, float y, float dx, float dy);
 };

@@ -21,7 +21,10 @@ struct MovingEntity : Entity {
     olc::vf2d velocity;
 
     MovingEntity();
+
     MovingEntity(float x, float y, float dx, float dy);
+
+    void updatePosition(float elapsedTime);
 };
 
 } // namespace bullet_hell

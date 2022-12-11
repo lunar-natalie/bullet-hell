@@ -13,22 +13,21 @@
 #include <olcPixelGameEngine.h>
 
 #include "entity.h"
-#include "sprite.h"
+#include "partial_sprite.h"
 
 using namespace bullet_hell;
 
-Sprite* Explosion::sprite = nullptr;
-unsigned int Explosion::frameCount;
+PartialSprite* Explosion::sprite;
 float Explosion::frameRate = 20.0f;
 
 Explosion::Explosion(float x, float y)
     : Entity(x, y),
-      timer{0.0f}
+      frameTimer{0.0f}
 {
 }
 
 bool Explosion::update(float elapsedTime)
 {
-    timer += elapsedTime;
-    return timer > static_cast<float>(frameCount) / frameRate;
+    frameTimer += elapsedTime;
+    return frameTimer > static_cast<float>(sprite->frameCount) / frameRate;
 }

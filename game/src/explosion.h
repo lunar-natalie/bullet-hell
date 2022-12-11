@@ -14,15 +14,14 @@
 #include <olcPixelGameEngine.h>
 
 #include "entity.h"
-#include "sprite.h"
+#include "partial_sprite.h"
 
 namespace bullet_hell {
 
 struct Explosion : Entity {
-    static Sprite* sprite;
-    static unsigned int frameCount;
+    static PartialSprite* sprite;
     static float frameRate;
-    float timer;
+    float frameTimer;
 
     Explosion(float x, float y);
 

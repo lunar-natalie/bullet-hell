@@ -13,11 +13,11 @@
 #include <cstdlib>
 
 #include "moving_entity.h"
-#include "sprite.h"
+#include "partial_sprite.h"
 
 using namespace bullet_hell;
 
-Sprite* Gem::sprite = nullptr;
+PartialSprite* Gem::sprite;
 float Gem::spawnTimer;
 float Gem::spawnInterval = 0.5f;
 float Gem::startY = -20.0f;

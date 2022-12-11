@@ -23,3 +23,8 @@ MovingEntity::MovingEntity(float x, float y, float dx, float dy)
       velocity{dx, dy}
 {
 }
+
+void MovingEntity::updatePosition(float elapsedTime)
+{
+    position += elapsedTime * velocity;
+}
