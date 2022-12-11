@@ -57,7 +57,7 @@ bool Game::loadResourcePack()
     return false;
 }
 
-void Game::createSprites()
+bool Game::createSprites()
 {
     backgroundSprite = createSprite(resources::image::BACKGROUND);
     Bullet::sprite = createSprite(resources::image::BULLET);
@@ -79,6 +79,18 @@ void Game::createSprites()
                                   / static_cast<float>(Gem::sprite->frameCount),
                               static_cast<float>(Gem::sprite->height)};
     Gem::sprite->centerPoint = Gem::sprite->frameSize / 2.0f;
+
+    std::vector<Sprite*> allSprites = {Bullet::sprite, Shooter::sprite,
+                                       Ship::sprite,   Explosion::sprite,
+                                       Gem::sprite,    Plasma::sprite};
+
+    for (const auto& sprite : allSprites) {
+        if (!sprite->checkValidity()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 Sprite* Game::createSprite(const std::string& filename) const

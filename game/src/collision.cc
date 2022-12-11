@@ -18,8 +18,8 @@ using namespace bullet_hell;
 
 bool Game::checkCollision(const Entity* source, const Entity* target) const
 {
-    return pow(source->position.x - target->position.x, 2)
-               + pow(source->position.y - target->position.y, 2)
+    return pow(target->position.x - source->position.x, 2)
+               + pow(target->position.y - source->position.y, 2)
            < pow(25.0f, 2);
 }
 

@@ -16,11 +16,14 @@ using namespace bullet_hell;
 
 bool Game::OnUserCreate()
 {
-    if (loadResourcePack()) {
-        createSprites();
+    if (!loadResourcePack()) {
+        std::cerr << "Failed to load resource pack." << std::endl;
+        return false;
     }
-    else {
-        std::cerr << "Failed to load resource pack.";
+
+    if (!createSprites()) {
+        std::cerr << "Failed to load sprites." << std::endl;
+        return false;
     }
 
     return true;

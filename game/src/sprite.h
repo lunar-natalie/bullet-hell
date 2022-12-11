@@ -25,6 +25,8 @@ struct Sprite : olc::Sprite {
 
     Sprite(const std::string& imageFilename, olc::ResourcePack* pack = nullptr,
            bool setCenterPoint = true);
+
+    bool checkValidity() const;
 };
 
 } // namespace bullet_hell

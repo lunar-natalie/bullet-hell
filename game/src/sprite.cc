@@ -30,3 +30,8 @@ Sprite::Sprite(const std::string& imageFilename, olc::ResourcePack* pack,
                        static_cast<float>(height) / 2.0f};
     }
 }
+
+bool Sprite::checkValidity() const
+{
+    return width > 0 && height > 0;
+}
