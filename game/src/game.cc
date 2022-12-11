@@ -35,9 +35,6 @@ Game::Game(int argc, char* argv[])
     shouldExit = false;
     shouldReset = true;
 
-    timer = 0;
-    frames = 0;
-
     ship = new Ship();
 
     bullets = std::vector<Bullet*>();

@@ -41,8 +41,8 @@ void Game::process(float elapsedTime)
     if (shouldReset) {
         srand(time(NULL));
 
-        timer = 0.0f;
-        frames = 0;
+        frameTimer = 0.0f;
+        elapsedFrames = 0;
 
         Gem::spawnTimer = 0.0f;
         Shooter::spawnTimer = 0.0f;
@@ -59,12 +59,12 @@ void Game::process(float elapsedTime)
         shouldReset = false;
     }
 
-    timer += elapsedTime;
-    ++frames;
-    if (timer > 1.0f) {
-        fps = frames;
-        frames = 0;
-        --timer;
+    frameTimer += elapsedTime;
+    ++elapsedFrames;
+    if (frameTimer > 1.0f) {
+        fps = elapsedFrames;
+        elapsedFrames = 0;
+        --frameTimer;
         std::cout << shooters.size() << " shooters, " << bullets.size()
                   << " bullets, " << gems.size() << " gems." << std::endl;
     }

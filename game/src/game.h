@@ -45,9 +45,9 @@ private:
 
     void updateScreenDimensions();
 
-    Sprite* createSprite(const std::string& filename) const;
     bool loadResourcePack();
     void createSprites();
+    Sprite* createSprite(const std::string& filename) const;
 
     void addBullets(size_t count, olc::vf2d start);
 
@@ -59,8 +59,8 @@ private:
     int32_t screenWidth;
     int32_t screenHeight;
 
-    float timer;
-    unsigned int frames;
+    float frameTimer;
+    unsigned int elapsedFrames;
     unsigned int fps;
 
     Ship* ship;
