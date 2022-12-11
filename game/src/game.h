@@ -12,6 +12,7 @@
 #define BULLET_HELL_GAME_H
 
 #include <cstddef>
+#include <cstdint>
 
 #include <filesystem>
 #include <string>
@@ -23,9 +24,9 @@
 #include "explosion.h"
 #include "gem.h"
 #include "plasma.h"
-#include "sprite.h"
 #include "ship.h"
 #include "shooter.h"
+#include "sprite.h"
 
 namespace bullet_hell {
 
@@ -55,8 +56,8 @@ private:
     bool shouldReset;
     bool shouldExit;
 
-    unsigned int screenWidth;
-    unsigned int screenHeight;
+    int32_t screenWidth;
+    int32_t screenHeight;
 
     float timer;
     unsigned int frames;
