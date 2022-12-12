@@ -30,9 +30,6 @@ void Game::draw()
 
     DrawDecal({0.0f, 0.0f}, backgroundSprite->decal);
 
-    float scale;
-    olc::vf2d centerPoint;
-
     for (const auto& bullet : bullets) {
         draw(bullet, Bullet::sprite, 0.0333f);
     }
