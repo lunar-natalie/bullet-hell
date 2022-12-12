@@ -16,9 +16,15 @@
 
 namespace bullet_hell {
 
+/// @brief Bullet projectile entity fired by shooters.
 struct Bullet : MovingEntity {
     static Sprite* sprite;
 
+    /// @brief Creates a new Bullet object.
+    /// @param x x-position in pixels.
+    /// @param y y-position in pixels.
+    /// @param dx x-velocity in pixels per second.
+    /// @param dy y-velocity in pixels per second.
     Bullet(float x, float y, float dx, float dy);
 };
 

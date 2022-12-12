@@ -15,7 +15,7 @@
 
 using namespace bullet_hell;
 
-Sprite* Shooter::sprite = nullptr;
+Sprite* Shooter::sprite;
 float Shooter::spawnTimer;
 float Shooter::spawnInterval = 2.0f;
 float Shooter::startY = -20.0f;

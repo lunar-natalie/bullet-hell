@@ -1,7 +1,7 @@
 /*
  * resources.h
  *
- * Resource strings.
+ * Resource filenames located in the game's resource pack.
  *
  * Copyright (c) 2022 The SFC Project Authors.
  *

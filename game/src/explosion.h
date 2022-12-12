@@ -18,13 +18,26 @@
 
 namespace bullet_hell {
 
+/// @brief Animated explosion entity.
 struct Explosion : Entity {
     static PartialSprite* sprite;
+
+    /// @brief Number of frames to show per second.
     static float frameRate;
+
+    /// @brief Time elapsed in seconds since the last frame was drawn.
     float frameTimer;
 
+    /// @brief Creates a new Explosion object.
+    /// @param x x-position in pixels.
+    /// @param y y-position in pixels.
     Explosion(float x, float y);
 
+    /// @brief Updates `frameTimer` and checks whether the next frame should be
+    /// drawn.
+    /// @param elapsedTime Time elapsed in seconds since the function was last
+    /// called.
+    /// @return `true` if the next frame should be drawn, otherwise `false`.
     bool update(float elapsedTime);
 };
 

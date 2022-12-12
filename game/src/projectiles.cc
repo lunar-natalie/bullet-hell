@@ -22,9 +22,9 @@ void Game::updateShipFire()
 {
     ship->reloadTimer -= elapsedTime;
     if (ship->isFiring && ship->reloadTimer < 0.0f) {
-        ship->reloadTimer = 0.1f;
+        ship->reloadTimer = ship->reloadInterval;
         plasmas.push_back(new Plasma(ship->position.x,
-                                     ship->position.y + Plasma::startXOffset,
+                                     ship->position.y + Plasma::initialYOffset,
                                      0.0f, -Plasma::baseSpeed));
     }
 }

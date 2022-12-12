@@ -16,7 +16,7 @@
 using namespace bullet_hell;
 
 Sprite* Plasma::sprite;
-float Plasma::startXOffset = -40.0f;
+float Plasma::initialYOffset = -40.0f;
 float Plasma::baseSpeed = 500.0f;
 
 Plasma::Plasma(float x, float y, float dx, float dy)

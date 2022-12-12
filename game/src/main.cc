@@ -21,9 +21,9 @@ using namespace bullet_hell;
 
 int main(int argc, char* argv[])
 {
-    Game game(argc, argv);
-    if (game.Construct(config::WINDOW_WIDTH, config::WINDOW_HEIGHT, 1, 1)) {
-        game.Start();
+    Game* game = new Game(argc, argv);
+    if (game->Construct(config::WINDOW_WIDTH, config::WINDOW_HEIGHT, 1, 1)) {
+        game->Start();
     }
 
     return EXIT_SUCCESS;

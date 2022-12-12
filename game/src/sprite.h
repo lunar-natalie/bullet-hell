@@ -17,15 +17,28 @@
 
 namespace bullet_hell {
 
+/// @brief Visual representation of an entity.
 struct Sprite : olc::Sprite {
+    /// @brief GPU-resident storage of the sprite's image.
     olc::Decal* decal;
+
+    /// @brief The center point from which the sprite should be positioned on
+    /// screen, in pixels.
     olc::vf2d centerPoint;
 
+    /// @brief Creates a new empty Sprite object.
     Sprite();
 
+    /// @brief Creates a new Sprite object.
+    /// @param imageFilename Filename of the sprite's image.
+    /// @param pack Resource pack from which to load the sprite's image.
+    /// @param setCenterPoint Set to `false` to prevent automatic calculation of
+    /// the sprite's center point.
     Sprite(const std::string& imageFilename, olc::ResourcePack* pack = nullptr,
            bool setCenterPoint = true);
 
+    /// @brief Checks if the sprite contains valid data.
+    /// @return `true` if valid, otherwise `false`.
     bool checkValidity() const;
 };
 

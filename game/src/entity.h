@@ -15,11 +15,17 @@
 
 namespace bullet_hell {
 
+/// @brief Representation of a visible object in the game.
 struct Entity {
+    /// @brief Position of the object in the screen, in pixels.
     olc::vf2d position;
 
+    /// @brief Creates a new empty Entity object.
     Entity();
 
+    /// @brief Creates a new Entity object.
+    /// @param x x-position in pixels.
+    /// @param y y-position in pixels.
     Entity(float x, float y);
 };
 

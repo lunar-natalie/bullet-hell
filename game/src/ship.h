@@ -19,19 +19,39 @@
 
 namespace bullet_hell {
 
+/// @brief Player-controlled ship entity.
 struct Ship : MovingEntity {
     static Sprite* sprite;
-    static const float defaultAccelerationModifier;
-    static const float defaultDecelerationModifier;
-    static const float defaultMaxSpeed;
+
+    /// @brief Acceleration of the object on the screen, in pixels per second
+    /// squared.
     olc::vf2d acceleration;
+
+    /// @brief All current ship directions combined with the Direction's
+    /// `operator|=`.
     Direction direction;
+
+    /// @brief Value added to or subtracted from the ship's previous
+    /// acceleration value when moving.
     float accelerationModifier;
+
+    /// @brief Value added to or subtracted from the ship's previous
+    /// deceleration value when coming to a halt.
     float decelerationModifier;
+
+    /// @brief Maximum positive speed in any direction. Compared with the ship's
+    /// velocity value to determine when acceleration or deceleration should
+    /// stop.
     float maxSpeed;
+
     bool isAlive;
     bool isFiring;
+
+    /// @brief Time elapsed in seconds since the ship was last firing.
     float reloadTimer;
+
+    /// @brief Number of seconds between reloads until the ship can fire.
+    float reloadInterval;
 
     Ship();
 };
