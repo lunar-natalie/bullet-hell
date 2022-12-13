@@ -173,6 +173,8 @@ cmake --build build --target uninstall
 * Code should fit the conditions specified in [`.editorconfig`](.editorconfig)
   and [`.clang-format`](.clang-format) (see the
   [ClangFormat documentation][www-clang-format] for more information).
+* Identifiers and routines are documented with [Doxygen][www-doxygen] comments
+  where applicable.
 
 ## License
 Copyright (c) 2022 The SFC Project Authors.
@@ -257,6 +259,7 @@ distribution, and are relative to the default resource pack at runtime:
 [www-clang]: https://clang.llvm.org/
 [www-cmake]: https://cmake.org/
 [www-cygwin]: https://www.cygwin.com/
+[www-doxygen]: https://www.doxygen.nl/
 [www-gcc]: https://gcc.gnu.org/
 [www-gdb]: https://sourceware.org/gdb/
 [www-homebrew]: https://brew.sh/
