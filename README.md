@@ -5,7 +5,7 @@ Farnborough C++ (SFC) Project.
 ## Table of contents
 * [Bullet Hell](#bullet-hell)
   * [Table of contents](#table-of-contents)
-  * [Documentation](#documentation)
+  * [Preface](#preface)
   * [Supported platforms](#supported-platforms)
   * [Requirements](#requirements)
   * [Building](#building)
@@ -22,12 +22,12 @@ Farnborough C++ (SFC) Project.
     * [Uninstall](#uninstall)
   * [Structure](#structure)
   * [Coding style](#coding-style)
-  * [License](#license)
   * [Library licenses](#library-licenses)
     * [olcPixelGameEngine (OLC-3)](#olcpixelgameengine-olc-3)
   * [Asset licenses](#asset-licenses)
+  * [License](#license)
 
-## Documentation
+## Preface
 * Documentation and code is written in United States English for integration
   with other programs.
 * The documented development environments are [Visual Studio Code][www-vs-code]
@@ -145,17 +145,16 @@ cmake --build build --target uninstall
 ```
 
 ## Structure
-* Source code is located in [`game/src`](game/src/). To add more source files to
-  the program, modify the `bullet_hell_SOURCES` variable in
-  [`game/CMakeLists.txt`](game/CMakeLists.txt).
+* Source code is located in `game/src`. To add more source files to the program,
+  modify the `bullet_hell_SOURCES` variable in `game/CMakeLists.txt.
 * Resources are loaded at runtime from a resource pack. Source assets are
-  located in the [`assets`](assets/) directory and are bundled by the source
-  code in the [`resource_builder`](resource_builder/) directory at build time.
+  located in the `assets` directory and are bundled by the source code in the
+  `resource_builder` directory at build time.
 * C++ source files have the extension `.cc`.
 * C/C++ header files have the extension `.h`.
 * Headers configured by CMake at build time have the extension `.h.in`.
-* Headers shared by both the game and the resource builder are located in
-  the [`shared`](shared/) directory.
+* Headers shared by both the game and the resource builder are located in the
+  `shared` directory.
 
 ## Coding style
 * Lines should be no longer than 80 characters, unless readability or
@@ -190,30 +189,13 @@ cmake --build build --target uninstall
   /// You should have received a copy of the GNU General Public License
   /// along with this program. If not, see <https://www.gnu.org/licenses/>.
   ```
-* Code should fit the conditions specified in [`.editorconfig`](.editorconfig)
-  and [`.clang-format`](.clang-format) (see the
-  [ClangFormat documentation][www-clang-format] for more information).
-
-## License
-Copyright (c) 2022 The SFC Project Authors.
-
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program. If not, see <https://www.gnu.org/licenses/>.
-
-See [`LICENSE`](LICENSE) and [`AUTHORS`](AUTHORS) for more information.
+* Code should fit the conditions specified in `.editorconfig` and
+  `.clang-format` (see the [ClangFormat documentation][www-clang-format] for
+  more information).
 
 ## Library licenses
 ### olcPixelGameEngine (OLC-3)
-Source: [`shared/olcPixelGameEngine.h`](shared/olcPixelGameEngine.h)
+Source: `shared/olcPixelGameEngine.h`
 
 Copyright 2018-2022 OneLoneCoder.com
 
@@ -246,29 +228,46 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## Asset licenses
-Listed paths are relative to the [`assets`](assets/) directory in the source
+Listed paths are relative to the `assets` directory in the source
 distribution, and are relative to the default resource pack at runtime:
-* [`background.png`](assets/background.png)
+* `background.png`
   * Image by [Jeremy Thomas][www-jeremy-thomas]
   * License: [Unsplash][www-unsplash-license]
-* [`bullet.png`](assets/bullet.png)
+* `bullet.png`
   * Artist: Unknown
   * License: Public domain
-* [`explosion.png`](assets/explosion.png)
+* `explosion.png`
   * Artist: Unknown
   * License: Unknown / Public domain
-* [`gems.png`](assets/gems.png)
+* `gems.png`
   * Artist: Unknown
   * License: Unknown / Public domain
-* [`plasma.png`](assets/plasma.png)
+* `plasma.png`
   * Artist: Unknown
   * License: Free for non-commercial use
-* [`ship.png`](assets/ship.png)
+* `ship.png`
   * Artist: Unknown
   * License: Unknown / Public domain
-* [`shooter.png`](assets/shooter.png)
+* `shooter.png`
   * Artist: Unknown
   * License: Free for non-commercial use
+
+## License
+Copyright (c) 2022 The SFC Project Authors.
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
+
+See `LICENSE` and `AUTHORS` for more information.
 
 
 [www-apple-opengl]: https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_intro/opengl_intro.html#//apple_ref/doc/uid/TP40001987-CH207-TP9
