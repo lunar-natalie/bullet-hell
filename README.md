@@ -12,14 +12,14 @@ Farnborough C++ (SFC) Project.
     * [Requirements](#requirements-1)
     * [VS Code](#vs-code)
     * [Standalone](#standalone)
-  * [Running from the development environmennt](#running-from-the-development-environmennt)
+  * [Running from the development environment](#running-from-the-development-environment)
     * [VS Code](#vs-code-1)
     * [Standalone](#standalone-1)
-  * [Debugging from the development environmennt](#debugging-from-the-development-environmennt)
+  * [Debugging from the development environment](#debugging-from-the-development-environment)
     * [Requirements](#requirements-2)
     * [VS Code](#vs-code-2)
   * [Installation](#installation)
-    * [Uninstallation](#uninstallation)
+    * [Uninstall](#uninstall)
   * [Structure](#structure)
   * [Coding style](#coding-style)
   * [License](#license)
@@ -30,7 +30,7 @@ Farnborough C++ (SFC) Project.
 ## Documentation
 * Documentation and code is written in United States English for integration
   with other programs.
-* The documented development envrionments are [Visual Studio Code][www-vs-code]
+* The documented development environments are [Visual Studio Code][www-vs-code]
   and standalone [POSIX shell][www-man-page-sh-1p].
 * 'Visual Studio Code' and 'Code - OSS' are collectively abbreviated to VS Code.
 * POSIX shell commands to be run as user from the project's root directory are
@@ -65,15 +65,16 @@ Farnborough C++ (SFC) Project.
 * [CMake][www-cmake] >= 3.10
 
 ### VS Code
-Required extensions:
-* [C/C++][www-vs-code-c-cxx]
-* [CMake Tools][www-vs-code-cmake-tools]
+Configuration:
+* Install the recommended workspace extensions when prompted, or run the
+  `Extensions: Show Recommended Extensions` command and click the
+  `Install Workspace Recommended Extensions` button in the sidebar.
+* Configure the workspace for CMake when prompted, or run the `CMake: Configure`
+  command. Select `bullet_hell` as the build target.
 
 Debugging is enabled in the default workflow when building using VS Code.
 
 Workflow:
-* Configure the workspace for CMake when prompted, or run the `CMake: Configure`
-  command. Use `bullet_hell` as the default target.
 * `Tasks: Run Build Task`
   * Default shortcut: `Ctrl/Cmd+Shift+B`
 
@@ -106,7 +107,7 @@ Cleaning the build environment:
 rm -rf build
 ```
 
-## Running from the development environmennt
+## Running from the development environment
 ### VS Code
 Workflow:
 * `CMake: Run Without Debugging`
@@ -117,7 +118,7 @@ Workflow:
 build/bullet-hell
 ```
 
-## Debugging from the development environmennt
+## Debugging from the development environment
 ### Requirements
 * [GDB][www-gdb]
 
@@ -130,15 +131,15 @@ Workflow:
 See the following instructions to install or uninstall the game after
 [building](#building).
 
-Installation and uninstallation to/from a system directory requires sufficient
-privelleges (requires `sudo`, and commands to be prefixed with `sudo`, on
+Installing and uninstalling to/from a system directory requires sufficient
+privileges (requires `sudo`, and commands to be prefixed with `sudo`, on
 Linux/BSD/macOS).
 
 ```shell
 cmake --install build
 ```
 
-### Uninstallation
+### Uninstall
 ```shell
 cmake --build build --target uninstall
 ```

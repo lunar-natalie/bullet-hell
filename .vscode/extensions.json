@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "EditorConfig.EditorConfig",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "stkb.rewrap",
+        "streetsidesoftware.code-spell-checker",
+        "twxs.cmake",
+        "yzhang.markdown-all-in-one"
+    ]
+}

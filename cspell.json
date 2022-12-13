@@ -1,0 +1,30 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "ignorePaths": [
+        "*.in"
+    ],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "Cygwin",
+        "Farnborough",
+        "POSIX"
+    ],
+    "ignoreWords": [],
+    "import": [],
+    "patterns": [
+        {
+            "name": "markdown-code-block",
+            "pattern": "/^(\\s*`{3,}).*[\\s\\S]*?^\\1/gmx"
+        }
+    ],
+    "languageSettings": [
+        {
+            "languageId": "markdown",
+            "ignoreRegExpList": [
+                "markdown-code-block"
+            ]
+        }
+    ]
+}
