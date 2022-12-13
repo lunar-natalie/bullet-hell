@@ -159,22 +159,40 @@ cmake --build build --target uninstall
 
 ## Coding style
 * Lines should be no longer than 80 characters, unless readability or
-  functionality is significantly affected.
-* Each source file should begin with a comment formatted as follows:
-  ```
-  <filename>
-
-  <description>
-
-  Copyright (c) <year> <authors>.
-
-  SPDX-License-Identifier: <identifier>
+  functionality is detrimentally affected.
+* Identifiers and routines are documented with [Doxygen][www-doxygen] comments
+  where applicable.
+* Each source and header file should begin with a comment formatted as follows,
+  where properties encapsulated by square brackets should be substituted with
+  appropriate values:
+  ```c++
+  /// @file [filename]
+  /// @authors The SFC Project Authors
+  /// @version [major].[minor]
+  /// @brief [description]
+  ///
+  /// [Detailed description if required]
+  ///
+  /// @section LICENSE
+  ///
+  /// Copyright (c) 2022 The SFC Project Authors.
+  ///
+  /// This program is free software: you can redistribute it and/or modify
+  /// it under the terms of the GNU General Public License as published by
+  /// the Free Software Foundation, either version 3 of the License, or
+  /// (at your option) any later version.
+  ///
+  /// This program is distributed in the hope that it will be useful,
+  /// but WITHOUT ANY WARRANTY; without even the implied warranty of
+  /// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  /// GNU General Public License for more details.
+  ///
+  /// You should have received a copy of the GNU General Public License
+  /// along with this program. If not, see <https://www.gnu.org/licenses/>.
   ```
 * Code should fit the conditions specified in [`.editorconfig`](.editorconfig)
   and [`.clang-format`](.clang-format) (see the
   [ClangFormat documentation][www-clang-format] for more information).
-* Identifiers and routines are documented with [Doxygen][www-doxygen] comments
-  where applicable.
 
 ## License
 Copyright (c) 2022 The SFC Project Authors.
