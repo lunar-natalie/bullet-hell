@@ -6,7 +6,8 @@ configure_file(${resource_builder_CODE_SOURCE_DIR}/config.h.in
     ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 set(resource_builder_SOURCES
-    main.cc)
+    main.cc
+    )
 
 list(TRANSFORM resource_builder_SOURCES
     PREPEND ${resource_builder_CODE_SOURCE_DIR}/)

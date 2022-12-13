@@ -26,7 +26,8 @@ set(bullet_hell_SOURCES
     shooter.cc
     spawn.cc
     sprite.cc
-    trajectories.cc)
+    trajectories.cc
+    )
 
 list(TRANSFORM bullet_hell_SOURCES
     PREPEND ${bullet_hell_CODE_SOURCE_DIR}/)
