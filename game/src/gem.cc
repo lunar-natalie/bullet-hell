@@ -24,6 +24,8 @@
 
 #include <cstdlib>
 
+#include <olcPixelGameEngine.h>
+
 #include "moving_entity.h"
 #include "partial_sprite.h"
 
@@ -36,8 +38,8 @@ float Gem::startY = -20.0f;
 float Gem::defaultXVelocity = 0.0f;
 float Gem::defaultYVelocity = 100.0f;
 
-Gem::Gem(Type type, float x, float y, float dx, float dy)
-    : MovingEntity(x, y, dx, dy),
+Gem::Gem(float x, float y, float dx, float dy, Type type, olc::vf2d scale)
+    : MovingEntity(x, y, dx, dy, scale),
       type{type}
 {
 }

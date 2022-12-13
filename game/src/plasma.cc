@@ -22,6 +22,8 @@
 
 #include "plasma.h"
 
+#include <olcPixelGameEngine.h>
+
 #include "moving_entity.h"
 #include "sprite.h"
 
@@ -31,7 +33,7 @@ Sprite* Plasma::sprite;
 float Plasma::initialYOffset = -40.0f;
 float Plasma::baseSpeed = 500.0f;
 
-Plasma::Plasma(float x, float y, float dx, float dy)
-    : MovingEntity(x, y, dx, dy)
+Plasma::Plasma(float x, float y, float dx, float dy, olc::vf2d scale)
+    : MovingEntity(x, y, dx, dy, scale)
 {
 }

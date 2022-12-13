@@ -159,9 +159,12 @@ private:
 
     /// @brief Checks if two entities have collided.
     /// @param source First entity.
+    /// @param sourceSprite Sprite for first entity.
     /// @param target Second entity.
+    /// @param targetSprite Sprite for second entity.
     /// @return `true` if collided, otherwise `false`.
-    bool checkCollision(const Entity* source, const Entity* target) const;
+    bool checkCollision(const Entity* source, const Sprite* sourceSprite,
+                        const Entity* target, const Sprite* targetSprite) const;
 
     /// @brief Checks if an entity is within the bounds for rendering.
     /// @param entity Entity to check.
@@ -179,27 +182,23 @@ private:
     ////////////////////////////////////////////////////////////////////////////
 
     /// @brief Draws an entity to the screen.
-    /// @param entity Entity containing the required position data.
+    /// @param entity Entity containing the required position and scale data.
     /// @param sprite Sprite representing the entity with its associated
     /// GPU-resident storage.
-    /// @param scale Factor by which to multiply the sprite's displayed
-    /// dimensions and center point.
-    void draw(const Entity* entity, Sprite* sprite, float scale = 1.0f);
+    void draw(const Entity* entity, Sprite* sprite);
 
     /// @brief Draws an entity with a horizontally positioned partial decal to
     /// the screen. Used to draw entities with multiple frames within the same
     /// sprite decal, positioned sequentially along the horizontal axis of the
     /// original image.
-    /// @param entity Entity containing the required position data.
+    /// @param entity Entity containing the required position and scale data.
     /// @param sprite Sprite representing the entity with its associated
     /// GPU-resident storage, dimensions for each frame in its decal, and number
     /// of frames in its decal.
     /// @param frameIndex Index of the desired frame to draw from the sprite's
     /// partial decal.
-    /// @param scale Factor by which to multiply the sprite's displayed
-    /// dimensions and center point.
     void drawHorizontalPartial(const Entity* entity, PartialSprite* sprite,
-                               unsigned int frameIndex, float scale = 1.0f);
+                               unsigned int frameIndex);
 
     ////////////////////////////////////////////////////////////////////////////
     // Properties //////////////////////////////////////////////////////////////

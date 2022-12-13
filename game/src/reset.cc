@@ -35,7 +35,7 @@ void Game::reset()
 {
     // Seed random number generator with current time to randomize entity spawn
     // properties.
-    srand(time(NULL));
+    std::srand(std::time(0));
 
     // Frame properties.
     frameTimer = 0.0f;

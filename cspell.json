@@ -10,6 +10,7 @@
         "Cygwin",
         "Doxygen",
         "Farnborough",
+        "Hitbox",
         "POSIX"
     ],
     "ignoreWords": [],

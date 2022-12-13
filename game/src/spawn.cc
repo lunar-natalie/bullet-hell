@@ -36,8 +36,11 @@ void Game::spawnEntities()
     Shooter::spawnTimer -= elapsedTime;
     if (Shooter::spawnTimer < 0.0f) {
         Shooter::spawnTimer += Shooter::spawnInterval;
-        shooters.push_back(new Shooter(math::randomMultiplier()
-                                       * static_cast<float>(screenWidth)));
+        shooters.push_back(new Shooter(
+            math::randomMultiplier() * static_cast<float>(screenWidth),
+            Shooter::startY, Shooter::defaultXVelocity,
+            Shooter::defaultYVelocity, Shooter::defaultFireRate,
+            Shooter::defaultFireCount, {0.0333f, 0.0333f}));
     }
 
     // Decrement gem timer before spawning a new gem with a random type and
@@ -47,7 +50,8 @@ void Game::spawnEntities()
     if (Gem::spawnTimer < 0.0f) {
         Gem::spawnTimer += Gem::spawnInterval;
         gems.push_back(
-            new Gem(Gem::randomType(), math::randomMultiplier()
-                                           * static_cast<float>(screenWidth)));
+            new Gem(math::randomMultiplier() * static_cast<float>(screenWidth),
+                    Gem ::startY, Gem::defaultXVelocity, Gem::defaultYVelocity,
+                    Gem::randomType()));
     }
 }

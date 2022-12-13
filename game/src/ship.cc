@@ -29,7 +29,8 @@ using namespace bullet_hell;
 Sprite* Ship::sprite;
 
 Ship::Ship()
-    : accelerationModifier{3000.0f},
+    : MovingEntity(),
+      accelerationModifier{3000.0f},
       decelerationModifier{7.5f},
       maxSpeed{1000.0f},
       reloadInterval{0.1f}

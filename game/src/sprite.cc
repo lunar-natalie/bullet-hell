@@ -47,3 +47,8 @@ bool Sprite::checkValidity() const
 {
     return width > 0 && height > 0;
 }
+
+olc::vf2d Sprite::getSize() const
+{
+    return olc::vf2d{static_cast<float>(width), static_cast<float>(height)};
+}

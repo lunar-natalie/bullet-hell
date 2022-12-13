@@ -22,6 +22,8 @@
 
 #include "shooter.h"
 
+#include <olcPixelGameEngine.h>
+
 #include "moving_entity.h"
 #include "sprite.h"
 
@@ -37,8 +39,8 @@ float Shooter::defaultFireRate = 0.25f;
 unsigned int Shooter::defaultFireCount = 10;
 
 Shooter::Shooter(float x, float y, float dx, float dy, float fireRate,
-                 unsigned int fireCount)
-    : MovingEntity(x, y, dx, dy),
+                 unsigned int fireCount, olc::vf2d scale)
+    : MovingEntity(x, y, dx, dy, scale),
       fireRate{fireRate},
       fireCount{fireCount}
 {

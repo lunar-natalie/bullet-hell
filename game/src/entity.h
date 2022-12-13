@@ -25,6 +25,8 @@
 
 #include <olcPixelGameEngine.h>
 
+#include "sprite.h"
+
 namespace bullet_hell {
 
 /// @brief Representation of a visible object in the game.
@@ -32,13 +34,25 @@ struct Entity {
     /// @brief Position of the object in the screen, in pixels.
     olc::vf2d position;
 
-    /// @brief Creates a new empty Entity object.
+    /// @brief Factor to multiply the entity's sprite size by to get the
+    /// displayed entity size. Set to {1.0f, 1.0f} by default in all
+    /// constructors.
+    olc::vf2d scale;
+
+    /// @brief Creates a new Entity object with no set position.
     Entity();
 
     /// @brief Creates a new Entity object.
     /// @param x x-position in pixels.
     /// @param y y-position in pixels.
-    Entity(float x, float y);
+    /// @param scale x- and y-factors to multiply the entity's sprite size by
+    /// when drawing or performing hitbox calculations.
+    Entity(float x, float y, olc::vf2d scale = {1.0f, 1.0f});
+
+    /// @brief Gets the scaled dimensions of the entity on screen.
+    /// @param sprite Sprite containing the unscaled dimensions.
+    /// @return x- and y-size vector.
+    olc::vf2d getDisplayedSize(const Sprite* sprite) const;
 };
 
 } // namespace bullet_hell

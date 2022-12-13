@@ -46,17 +46,17 @@ void Game::draw()
 
     // Draw bullets.
     for (const auto& bullet : bullets) {
-        draw(bullet, Bullet::sprite, 0.0333f);
+        draw(bullet, Bullet::sprite);
     }
 
     // Draw plasmas.
     for (const auto& plasma : plasmas) {
-        draw(plasma, Plasma::sprite, 0.1333f);
+        draw(plasma, Plasma::sprite);
     }
 
     // Draw shooters.
     for (const auto& shooter : shooters) {
-        draw(shooter, Shooter::sprite, 0.0333f);
+        draw(shooter, Shooter::sprite);
     }
 
     // Draw gems, using each gem's type as the current frame to draw.
@@ -86,20 +86,20 @@ void Game::draw()
     }
 }
 
-void Game::draw(const Entity* entity, Sprite* sprite, float scale)
+void Game::draw(const Entity* entity, Sprite* sprite)
 {
-    DrawDecal(
-        entity->position - (scale * sprite->centerPoint), // Centered position
-        sprite->decal, // GPU-resident storage member
-        {scale, scale} // x- and y-scale
-    );
+    DrawDecal(entity->position
+                  - (entity->scale * sprite->centerPoint), // Centered position
+              sprite->decal, // GPU-resident storage member
+              entity->scale);
 }
 
 void Game::drawHorizontalPartial(const Entity* entity, PartialSprite* sprite,
-                                 unsigned int frameIndex, float scale)
+                                 unsigned int frameIndex)
 {
     DrawPartialDecal(
-        entity->position - (scale * sprite->centerPoint), // Centered position
+        entity->position
+            - (entity->scale * sprite->centerPoint), // Centered position
         sprite->decal, // GPU-resident storage member
         {
             static_cast<float>(frameIndex)
@@ -107,6 +107,5 @@ void Game::drawHorizontalPartial(const Entity* entity, PartialSprite* sprite,
             0.0f                       // y-offset from source
         },
         sprite->frameSize, // Dimensions for region
-        {scale, scale}     // x- and y-scale
-    );
+        entity->scale);
 }

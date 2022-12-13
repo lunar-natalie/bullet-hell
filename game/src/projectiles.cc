@@ -45,9 +45,9 @@ void Game::updateShipFire()
         // Create a new plasma at the ship's current position adjusted by a
         // global offset, using the global plasma speed as a base for its
         // velocity in the y-axis.
-        plasmas.push_back(new Plasma(ship->position.x,
-                                     ship->position.y + Plasma::initialYOffset,
-                                     0.0f, -Plasma::baseSpeed));
+        plasmas.push_back(new Plasma(
+            ship->position.x, ship->position.y + Plasma::initialYOffset, 0.0f,
+            -Plasma::baseSpeed, {0.1333f, 0.1333f}));
     }
 }
 
@@ -65,7 +65,8 @@ void Game::addBullets(unsigned int count, olc::vf2d initialPosition)
         // Create a new bullet at the specified start position, with velocities
         // multiplied by a speed constant and separated in the x- and
         // by pi/2 radians (distance between cos and sin) as pixels per second.
-        bullets.push_back(new Bullet(initialPosition.x, initialPosition.y,
-                                     100.0f * cos(theta), 100.0f * sin(theta)));
+        bullets.push_back(new Bullet(
+            initialPosition.x, initialPosition.y, 100.0f * std::cos(theta),
+            100.0f * std::sin(theta), {0.0333f, 0.0333f}));
     }
 }

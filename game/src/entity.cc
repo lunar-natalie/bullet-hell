@@ -22,13 +22,24 @@
 
 #include "entity.h"
 
+#include <olcPixelGameEngine.h>
+
+#include "sprite.h"
+
 using namespace bullet_hell;
 
 Entity::Entity()
+    : scale{1.0f, 1.0f}
 {
 }
 
-Entity::Entity(float x, float y)
-    : position{x, y}
+Entity::Entity(float x, float y, olc::vf2d scale)
+    : position{x, y},
+      scale{scale}
 {
+}
+
+olc::vf2d Entity::getDisplayedSize(const Sprite* sprite) const
+{
+    return sprite->getSize() * scale;
 }

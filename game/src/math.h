@@ -34,7 +34,7 @@ constexpr const double TWO_PI = 2 * PI;
 /// @return Number.
 inline float randomMultiplier()
 {
-    return static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+    return static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
 }
 
 } // namespace bullet_hell::math

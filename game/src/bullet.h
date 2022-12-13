@@ -23,6 +23,8 @@
 #ifndef BULLET_HELL_BULLET_H
 #define BULLET_HELL_BULLET_H
 
+#include <olcPixelGameEngine.h>
+
 #include "moving_entity.h"
 #include "sprite.h"
 
@@ -37,7 +39,10 @@ struct Bullet : MovingEntity {
     /// @param y y-position in pixels.
     /// @param dx x-velocity in pixels per second.
     /// @param dy y-velocity in pixels per second.
-    Bullet(float x, float y, float dx, float dy);
+    /// @param scale x- and y-factors to multiply the entity's sprite size by
+    /// when drawing or performing hitbox calculations.
+    Bullet(float x, float y, float dx, float dy,
+           olc::vf2d scale = {1.0f, 1.0f});
 };
 
 } // namespace bullet_hell

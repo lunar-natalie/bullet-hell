@@ -43,7 +43,9 @@ struct Explosion : Entity {
     /// @brief Creates a new Explosion object.
     /// @param x x-position in pixels.
     /// @param y y-position in pixels.
-    Explosion(float x, float y);
+    /// @param scale x- and y-factors to multiply the entity's sprite size by
+    /// when drawing or performing hitbox calculations.
+    Explosion(float x, float y, olc::vf2d scale = {1.0f, 1.0f});
 
     /// @brief Updates `frameTimer` and checks whether the next frame should be
     /// drawn.

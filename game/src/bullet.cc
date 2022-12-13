@@ -22,6 +22,8 @@
 
 #include "bullet.h"
 
+#include <olcPixelGameEngine.h>
+
 #include "moving_entity.h"
 #include "sprite.h"
 
@@ -29,7 +31,7 @@ using namespace bullet_hell;
 
 Sprite* Bullet::sprite;
 
-Bullet::Bullet(float x, float y, float dx, float dy)
-    : MovingEntity(x, y, dx, dy)
+Bullet::Bullet(float x, float y, float dx, float dy, olc::vf2d scale)
+    : MovingEntity(x, y, dx, dy, scale)
 {
 }

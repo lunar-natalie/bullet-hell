@@ -65,6 +65,7 @@ struct Ship : MovingEntity {
     /// @brief Number of seconds between reloads until the ship can fire.
     float reloadInterval;
 
+    /// @brief Creates a new Ship object with default values.
     Ship();
 };
 

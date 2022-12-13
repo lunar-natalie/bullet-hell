@@ -22,16 +22,20 @@
 
 #include "moving_entity.h"
 
+#include <olcPixelGameEngine.h>
+
 #include "entity.h"
 
 using namespace bullet_hell;
 
 MovingEntity::MovingEntity()
+    : Entity()
 {
 }
 
-MovingEntity::MovingEntity(float x, float y, float dx, float dy)
-    : Entity(x, y),
+MovingEntity::MovingEntity(float x, float y, float dx, float dy,
+                           olc::vf2d scale)
+    : Entity(x, y, scale),
       velocity{dx, dy}
 {
 }

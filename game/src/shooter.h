@@ -70,9 +70,10 @@ struct Shooter : MovingEntity {
     /// @param fireRate Number of times to fire per second.
     /// @param fireCount Number of bullets to fire at each interval determined
     /// by the fire rate.
-    Shooter(float x, float y = startY, float dx = defaultXVelocity,
-            float dy = defaultYVelocity, float fireRate = defaultFireRate,
-            unsigned int fireCount = defaultFireCount);
+    /// @param scale x- and y-factors to multiply the entity's sprite size by
+    /// when drawing or performing hitbox calculations.
+    Shooter(float x, float y, float dx, float dy, float fireRate,
+            unsigned int fireCount, olc::vf2d scale = {1.0f, 1.0f});
 };
 
 } // namespace bullet_hell

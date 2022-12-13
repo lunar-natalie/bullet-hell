@@ -33,3 +33,8 @@ PartialSprite::PartialSprite(const std::string& imageFilename,
     : Sprite(imageFilename, pack, false)
 {
 }
+
+olc::vf2d PartialSprite::getSize() const
+{
+    return frameSize;
+}

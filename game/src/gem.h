@@ -62,13 +62,15 @@ struct Gem : MovingEntity {
     static float defaultYVelocity;
 
     /// @brief Creates a new Gem object.
-    /// @param type Visual type.
     /// @param x x-position in pixels.
     /// @param y y-position in pixels.
     /// @param dx x-velocity in pixels per second.
     /// @param dy y-velocity in pixels per second.
-    Gem(Type type, float x, float y = startY, float dx = defaultXVelocity,
-        float dy = defaultYVelocity);
+    /// @param type Visual type.
+    /// @param scale x- and y-factors to multiply the entity's sprite size by
+    /// when drawing or performing hitbox calculations.
+    Gem(float x, float y, float dx, float dy, Type type,
+        olc::vf2d scale = {1.0f, 1.0f});
 
     /// @brief Generates a random value from `Type`.
     /// @return Visual type.

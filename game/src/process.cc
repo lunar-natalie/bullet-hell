@@ -26,7 +26,12 @@
 
 #include <olcPixelGameEngine.h>
 
+#include "bullet.h"
 #include "explosion.h"
+#include "gem.h"
+#include "plasma.h"
+#include "ship.h"
+#include "shooter.h"
 
 using namespace bullet_hell;
 
@@ -57,7 +62,8 @@ void Game::process()
     // Check collision between ship and bullets, and limit stored bullets to
     // rendering bounds.
     for (auto i = 0; i < bullets.size();) {
-        bool shipHit = checkCollision(ship, bullets[i]);
+        bool shipHit =
+            checkCollision(ship, Ship::sprite, bullets[i], Bullet::sprite);
 
         // Erase bullet if collided or out of bounds.
         if (shipHit || !checkBounds(bullets[i])) {
@@ -83,7 +89,8 @@ void Game::process()
         bool shooterHit = false;
 
         for (auto j = 0; j < shooters.size();) {
-            shooterHit = checkCollision(shooters[j], plasmas[i]);
+            shooterHit = checkCollision(shooters[j], Shooter::sprite,
+                                        plasmas[i], Plasma::sprite);
 
             // Kill shooter and create a new explosion starting from the
             // shooter's final position if the plasma collided with the shooter.
@@ -109,7 +116,7 @@ void Game::process()
     // Check collision between gems and the ship, and limit stored gems to
     // rendering bounds.
     for (auto i = 0; i < gems.size();) {
-        bool shipHit = checkCollision(ship, gems[i]);
+        bool shipHit = checkCollision(ship, Ship::sprite, gems[i], Gem::sprite);
 
         // Erase gem if collided with ship or out of bounds.
         if (shipHit || !checkBounds(gems[i])) {

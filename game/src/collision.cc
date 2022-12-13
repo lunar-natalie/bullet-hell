@@ -22,28 +22,32 @@
 
 #include "game.h"
 
-#include <cmath>
+#include <cstdlib>
+
+#include <olcPixelGameEngine.h>
 
 #include "entity.h"
+#include "sprite.h"
 
 using namespace bullet_hell;
 
-bool Game::checkCollision(const Entity* source, const Entity* target) const
+bool Game::checkCollision(const Entity* source, const Sprite* sourceSprite,
+                          const Entity* target,
+                          const Sprite* targetSprite) const
 {
-    // Using `source` and `target` as positions on an x- and y-coordinate grid,
-    // Pythagoras' Theorem tells us that where:
-    //      * `xs` is the x-coordinate of the source
-    //      * `xt` is the x-coordinate of the target
-    //      * `ys` is the y-coordinate of the source
-    //      * `yt` is the y-coordinate of the target
-    //      * `d` is the distance between the source and target;
-    // The following is true:
-    //      (xt - xs)^2 + (yt - ys)^2 = d^2
-    // If the distance `d` is less than 25 pixels squared, the entities have
-    // collided.
-    return pow(target->position.x - source->position.x, 2)
-               + pow(target->position.y - source->position.y, 2)
-           < pow(25.0f, 2);
+    auto sourceHitbox = source->getDisplayedSize(sourceSprite) / 3.0f;
+    auto targetHitbox = target->getDisplayedSize(targetSprite) / 3.0f;
+
+    // Distance between center of each sprite.
+    olc::vf2d combinedHitbox = {sourceHitbox.x + targetHitbox.x,
+                                sourceHitbox.y + targetHitbox.y};
+
+    // Distance between on-screen entities.
+    olc::vf2d distance = {std::abs(target->position.x - source->position.x),
+                          std::abs(target->position.y - source->position.y)};
+
+    // Collided if the on-screen distance falls within the combined hitbox.
+    return distance.x < combinedHitbox.x && distance.y < combinedHitbox.y;
 }
 
 bool Game::checkBounds(const Entity* entity) const

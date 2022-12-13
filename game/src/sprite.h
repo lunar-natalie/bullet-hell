@@ -52,6 +52,10 @@ struct Sprite : olc::Sprite {
     /// @brief Checks if the sprite contains valid data.
     /// @return `true` if valid, otherwise `false`.
     bool checkValidity() const;
+
+    /// @brief Gets the unscaled dimensions of the sprite.
+    /// @return x- and y-size vector.
+    virtual olc::vf2d getSize() const;
 };
 
 } // namespace bullet_hell

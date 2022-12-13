@@ -45,6 +45,10 @@ struct PartialSprite : Sprite {
     /// @param pack Resource pack from which to load the sprite's image.
     PartialSprite(const std::string& imageFilename,
                   olc::ResourcePack* pack = nullptr);
+
+    /// @brief Gets the unscaled dimensions of the sprite.
+    /// @return x- and y-size vector.
+    virtual olc::vf2d getSize() const override;
 };
 
 } // namespace bullet_hell

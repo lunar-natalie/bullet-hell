@@ -34,7 +34,8 @@ struct MovingEntity : Entity {
     /// @brief Velocity of the object in pixels per second.
     olc::vf2d velocity;
 
-    /// @brief Creates a new empty MovingEntity object.
+    /// @brief Creates a new MovingEntity object with no set position or
+    /// velocity.
     MovingEntity();
 
     /// @brief Creates a new MovingEntity object.
@@ -42,7 +43,10 @@ struct MovingEntity : Entity {
     /// @param y y-position in pixels.
     /// @param dx x-velocity in pixels per second.
     /// @param dy y-velocity in pixels per second.
-    MovingEntity(float x, float y, float dx, float dy);
+    /// @param scale x- and y-factors to multiply the entity's sprite size by
+    /// when drawing or performing hitbox calculations.
+    MovingEntity(float x, float y, float dx, float dy,
+                 olc::vf2d scale = {1.0f, 1.0f});
 
     /// @brief Increments the entity's position by the provided time multiplied
     /// by the entity's velocity.
