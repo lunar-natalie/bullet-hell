@@ -29,7 +29,8 @@
 
 namespace bullet_hell {
 
-/// @brief Representation of a moving visible object in the game.
+/// @brief Representation of a visual game object and its internal attributes,
+/// with velocity.
 struct MovingEntity : Entity {
     /// @brief Velocity of the object in pixels per second.
     olc::vf2d velocity;

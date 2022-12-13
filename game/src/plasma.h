@@ -28,7 +28,7 @@
 
 namespace bullet_hell {
 
-/// @brief Plasma projectile entity fired by the ship.
+/// @brief Projectile entity fired by Ship.
 struct Plasma : MovingEntity {
     static Sprite* sprite;
 

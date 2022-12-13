@@ -31,8 +31,8 @@
 
 namespace bullet_hell {
 
-/// @brief Visual representation of an entity, using a partial decal with
-/// multiple frames in a single image.
+/// @brief Representation of a visual game object and its internal attributes,
+/// using a partial decal containing multiple frames within a single image.
 struct PartialSprite : Sprite {
     /// @brief Size in pixels of an individual frame in the sprite's image.
     olc::vf2d frameSize;

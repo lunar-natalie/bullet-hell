@@ -31,7 +31,7 @@
 
 namespace bullet_hell {
 
-/// @brief Player-controlled ship entity.
+/// @brief Player-controlled entity.
 struct Ship : MovingEntity {
     static Sprite* sprite;
 

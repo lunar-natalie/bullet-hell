@@ -29,7 +29,7 @@
 
 namespace bullet_hell {
 
-/// @brief Visual representation of an entity.
+/// @brief Graphical entity data.
 struct Sprite : olc::Sprite {
     /// @brief GPU-resident storage of the sprite's image.
     olc::Decal* decal;

@@ -28,7 +28,7 @@
 
 namespace bullet_hell {
 
-/// @brief Enemy shooter entity.
+/// @brief Enemy entity.
 struct Shooter : MovingEntity {
     static Sprite* sprite;
 

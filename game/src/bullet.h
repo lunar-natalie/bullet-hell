@@ -1,7 +1,7 @@
 /// @file bullet.h
 /// @authors The SFC Project Authors
 /// @version 1.0
-/// @brief Bullet entity implementation.
+/// @brief Bullet entity.
 ///
 /// @section LICENSE
 ///
@@ -30,7 +30,7 @@
 
 namespace bullet_hell {
 
-/// @brief Bullet projectile entity fired by shooters.
+/// @brief Projectile entity fired by Shooter.
 struct Bullet : MovingEntity {
     static Sprite* sprite;
 

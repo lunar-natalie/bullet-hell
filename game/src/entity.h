@@ -29,13 +29,13 @@
 
 namespace bullet_hell {
 
-/// @brief Representation of a visible object in the game.
+/// @brief Representation of a visual game object and its internal attributes.
 struct Entity {
     /// @brief Position of the object in the screen, in pixels.
     olc::vf2d position;
 
     /// @brief Factor to multiply the entity's sprite size by to get the
-    /// displayed entity size. Set to {1.0f, 1.0f} by default in all
+    /// displayed entity size. Set to `{1.0f, 1.0f}` by default in all
     /// constructors.
     olc::vf2d scale;
 

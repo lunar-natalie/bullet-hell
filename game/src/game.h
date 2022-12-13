@@ -43,7 +43,7 @@
 
 namespace bullet_hell {
 
-/// @brief Game class containing the main game code; event handlers and runtime
+/// @brief Class containing the main game code; event handlers and runtime
 /// properties to run the engine.
 class Game : public olc::PixelGameEngine {
 public:
