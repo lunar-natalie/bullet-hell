@@ -1,12 +1,12 @@
-/*
- * events.cc
- *
- * Event handlers.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// events.cc
+//
+// Event handlers.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "game.h"
 

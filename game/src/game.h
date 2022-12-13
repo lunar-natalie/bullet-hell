@@ -1,12 +1,12 @@
-/*
- * game.h
- *
- * Game class.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// game.h
+//
+// Game class.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_GAME_H
 #define BULLET_HELL_GAME_H
@@ -44,7 +44,7 @@ public:
     Game(int argc, char* argv[]);
 
     ////////////////////////////////////////////////////////////////////////////
-    // Event hanndlers /////////////////////////////////////////////////////////
+    // Engine event handlers ///////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 
     /// @brief Called once on application startup to load resources and create
@@ -84,13 +84,13 @@ private:
     void draw();
 
     ////////////////////////////////////////////////////////////////////////////
-    // Loader //////////////////////////////////////////////////////////////////
+    // Resource loader /////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 
     /// @brief Loads the resource pack from the first existing configured file
     /// path on the system.
-    /// @return `true` if the object was successfully loaded, otherwise
-    /// `false` - in which case the value of `resourcePack` will be `nullptr`.
+    /// @return `true` if the object was successfully loaded, otherwise `false`
+    /// - in which case the value of `resourcePack` will be `nullptr`.
     bool loadResourcePack();
 
     /// @brief Creates all game sprites using the configured resource names
@@ -151,7 +151,7 @@ private:
     /// @return `true` if collided, otherwise `false`.
     bool checkCollision(const Entity* source, const Entity* target) const;
 
-    /// @brief Checks if an entity is within screen bounds.
+    /// @brief Checks if an entity is within the bounds for rendering.
     /// @param entity Entity to check.
     /// @return `true` if within screen bounds, otherwise `false`.
     bool checkBounds(const Entity* entity) const;
@@ -159,8 +159,8 @@ private:
     /// @brief Creates and adds a number of bullets to the bullet entity vector
     /// with a radial velocity pattern centered around an initial position.
     /// @param count Number of bullets.
-    /// @param startPosition Initial position for new bullets.
-    void addBullets(unsigned int count, olc::vf2d startPosition);
+    /// @param initialPosition Initial position for new bullets.
+    void addBullets(unsigned int count, olc::vf2d initialPosition);
 
     ////////////////////////////////////////////////////////////////////////////
     // Draw ////////////////////////////////////////////////////////////////////
@@ -174,10 +174,10 @@ private:
     /// dimensions and center point.
     void draw(const Entity* entity, Sprite* sprite, float scale = 1.0f);
 
-    /// @brief Draws an entity with a horiontally positioned partial decal to
+    /// @brief Draws an entity with a horizontally positioned partial decal to
     /// the screen. Used to draw entities with multiple frames within the same
-    /// sprite decal, positioned sequentially along the horizontal axis of
-    /// the original image.
+    /// sprite decal, positioned sequentially along the horizontal axis of the
+    /// original image.
     /// @param entity Entity containing the required position data.
     /// @param sprite Sprite representing the entity with its associated
     /// GPU-resident storage, dimensions for each frame in its decal, and number
@@ -198,8 +198,15 @@ private:
 
     // Flags
 
+    /// @brief `process()` should call `reset()` if this flag is set, before
+    /// setting the flag to `false`.
     bool shouldReset;
+
+    /// @brief `OnUserUpdate()` should return `false` if this flag is set.
     bool shouldExit;
+
+    /// @brief Visual statistics should be displayed in the current call to
+    /// `OnUserUpdate()`.
     bool shouldShowStats;
 
     // Dimensions, in pixels
@@ -209,15 +216,24 @@ private:
 
     // Frame
 
+    /// @brief Time elapsed in seconds since the last time `OnUserUpdate()` was
+    /// called.
     float elapsedTime;
+
+    /// @brief Time elapsed in seconds since the timer was reset.
     float frameTimer;
+
+    /// @brief Number of calls to `OnUserUpdate()` since the frame timer was
+    /// reset.
     unsigned int elapsedFrames;
+
+    /// @brief Number of frames rendered in the last second.
     unsigned int fps;
+
+    // Entities and visual data
 
     /// @brief Resource pack from which sprite assets are loaded.
     olc::ResourcePack* resourcePack;
-
-    // Entities
 
     Ship* ship;
     std::vector<Bullet*> bullets;
@@ -225,8 +241,6 @@ private:
     std::vector<Gem*> gems;
     std::vector<Explosion*> explosions;
     std::vector<Plasma*> plasmas;
-
-    // Miscellaneous
 
     Sprite* backgroundSprite;
 };

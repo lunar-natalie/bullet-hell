@@ -1,12 +1,12 @@
-/*
- * shooter.cc
- *
- * Shooter entity implementation.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// shooter.cc
+//
+// Shooter entity implementation.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "shooter.h"
 

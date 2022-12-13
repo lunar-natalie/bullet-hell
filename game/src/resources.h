@@ -1,12 +1,12 @@
-/*
- * resources.h
- *
- * Resource filenames located in the game's resource pack.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// resources.h
+//
+// Resource filenames located in the game's resource pack.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_RESOURCES_H
 #define BULLET_HELL_RESOURCES_H

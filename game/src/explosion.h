@@ -1,12 +1,12 @@
-/*
- * explosion.h
- *
- * Explosion entity.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// explosion.h
+//
+// Explosion entity.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_EXPLOSION_H
 #define BULLET_HELL_EXPLOSION_H

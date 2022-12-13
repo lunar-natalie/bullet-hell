@@ -1,12 +1,12 @@
-/*
- * draw.cc
- *
- * Per-frame drawing routine.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// draw.cc
+//
+// Per-frame drawing routine.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "game.h"
 
@@ -26,37 +26,47 @@ using namespace bullet_hell;
 
 void Game::draw()
 {
+    // Disable transparency.
     SetPixelMode(olc::Pixel::NORMAL);
 
+    // Draw background.
     DrawDecal({0.0f, 0.0f}, backgroundSprite->decal);
 
+    // Draw bullets.
     for (const auto& bullet : bullets) {
         draw(bullet, Bullet::sprite, 0.0333f);
     }
 
+    // Draw plasmas.
     for (const auto& plasma : plasmas) {
         draw(plasma, Plasma::sprite, 0.1333f);
     }
 
+    // Draw shooters.
     for (const auto& shooter : shooters) {
         draw(shooter, Shooter::sprite, 0.0333f);
     }
 
+    // Draw gems, using each gem's type as the current frame to draw.
     for (const auto& gem : gems) {
         drawHorizontalPartial(gem, Gem::sprite,
                               static_cast<unsigned int>(gem->type));
     }
 
+    // Draw ship.
     if (ship->isAlive) {
         draw(ship, Ship::sprite);
     }
 
+    // Draw explosions, using each explosion's frame rate multiplied by the time
+    // since the last frame was drawn as the current frame to draw.
     for (const auto& explosion : explosions) {
         unsigned int frameIndex = static_cast<unsigned int>(
             explosion->frameTimer * Explosion::frameRate);
         drawHorizontalPartial(explosion, Explosion::sprite, frameIndex);
     }
 
+    // Draw frames per second text statistic.
     if (fps > 0) {
         auto pos = olc::vf2d(static_cast<float>(screenWidth) - 70.0f,
                              static_cast<float>(screenHeight) - 70.0f);
@@ -66,15 +76,25 @@ void Game::draw()
 
 void Game::draw(const Entity* entity, Sprite* sprite, float scale)
 {
-    DrawDecal(entity->position - (scale * sprite->centerPoint), sprite->decal,
-              {scale, scale});
+    DrawDecal(
+        entity->position - (scale * sprite->centerPoint), // Centered position
+        sprite->decal, // GPU-resident storage member
+        {scale, scale} // x- and y-scale
+    );
 }
 
 void Game::drawHorizontalPartial(const Entity* entity, PartialSprite* sprite,
                                  unsigned int frameIndex, float scale)
 {
     DrawPartialDecal(
-        entity->position - (scale * sprite->centerPoint), sprite->decal,
-        {static_cast<float>(frameIndex) * sprite->frameSize.x, 0.0f},
-        sprite->frameSize, {scale, scale});
+        entity->position - (scale * sprite->centerPoint), // Centered position
+        sprite->decal, // GPU-resident storage member
+        {
+            static_cast<float>(frameIndex)
+                * sprite->frameSize.x, // x-offset from source
+            0.0f                       // y-offset from source
+        },
+        sprite->frameSize, // Dimensions for region
+        {scale, scale}     // x- and y-scale
+    );
 }

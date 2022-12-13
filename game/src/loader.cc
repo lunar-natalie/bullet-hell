@@ -1,12 +1,12 @@
-/*
- * loader.cc
- *
- * Utilities for loading resources into the game instance.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// loader.cc
+//
+// Utilities for loading resources into the game instance.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "game.h"
 
@@ -59,6 +59,8 @@ bool Game::loadResourcePack()
 
 bool Game::createSprites()
 {
+    // Create new sprite objects for all entities and visual objects.
+
     backgroundSprite = createSprite(resources::image::BACKGROUND);
     Bullet::sprite = createSprite(resources::image::BULLET);
     Shooter::sprite = createSprite(resources::image::SHOOTER);
@@ -66,6 +68,8 @@ bool Game::createSprites()
     Explosion::sprite = createPartialSprite(resources::image::EXPLOSION);
     Gem::sprite = createPartialSprite(resources::image::GEMS);
     Plasma::sprite = createSprite(resources::image::PLASMA);
+
+    // Set required properties for all partial sprites.
 
     Explosion::sprite->frameCount = 25;
     Explosion::sprite->frameSize = {
@@ -79,6 +83,8 @@ bool Game::createSprites()
                                   / static_cast<float>(Gem::sprite->frameCount),
                               static_cast<float>(Gem::sprite->height)};
     Gem::sprite->centerPoint = Gem::sprite->frameSize / 2.0f;
+
+    // Check data is valid.
 
     std::vector<Sprite*> allSprites = {Bullet::sprite, Shooter::sprite,
                                        Ship::sprite,   Explosion::sprite,

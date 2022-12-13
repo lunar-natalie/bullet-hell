@@ -1,12 +1,12 @@
-/*
- * process.cc
- *
- * Per-frame logic handler.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// process.cc
+//
+// Per-frame logic handler.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "game.h"
 
@@ -42,9 +42,12 @@ void Game::process()
 
     updateNonPlayerEntityTrajectories();
 
+    // Check collision between ship and bullets, and limit stored bullets to
+    // rendering bounds.
     for (auto i = 0; i < bullets.size();) {
         bool shipHit = checkCollision(ship, bullets[i]);
 
+        // Erase bullet if collided or out of bounds.
         if (shipHit || !checkBounds(bullets[i])) {
             bullets.erase(bullets.begin() + i);
         }
@@ -52,30 +55,37 @@ void Game::process()
             ++i;
         }
 
+        // Kill ship and create a new explosion starting from the ship's final
+        // position if collided. Will only execute a maximum of 1 times in the
+        // loop.
         if (shipHit && ship->isAlive) {
             ship->isAlive = false;
             explosions.push_back(
                 new Explosion(ship->position.x, ship->position.y));
-            break;
         }
     }
 
+    // Check collision between shooters and plasmas, and limit stored plasmas to
+    // rendering bounds.
     for (auto i = 0; i < plasmas.size();) {
         bool shooterHit = false;
 
         for (auto j = 0; j < shooters.size();) {
             shooterHit = checkCollision(shooters[j], plasmas[i]);
+
+            // Kill shooter and create a new explosion starting from the
+            // shooter's final position if the plasma collided with the shooter.
             if (shooterHit) {
                 explosions.push_back(new Explosion{shooters[j]->position.x,
                                                    shooters[j]->position.y});
                 shooters.erase(shooters.begin() + j);
-                break;
             }
             else {
                 j++;
             }
         }
 
+        // Erase plasma if collided or out of bounds.
         if (shooterHit || !checkBounds(plasmas[i])) {
             plasmas.erase(plasmas.begin() + i);
         }
@@ -84,8 +94,12 @@ void Game::process()
         }
     }
 
+    // Check collision between gems and the ship, and limit stored gems to
+    // rendering bounds.
     for (auto i = 0; i < gems.size();) {
         bool shipHit = checkCollision(ship, gems[i]);
+
+        // Erase gem if collided with ship or out of bounds.
         if (shipHit || !checkBounds(gems[i])) {
             gems.erase(gems.begin() + i);
         }
@@ -94,14 +108,7 @@ void Game::process()
         }
     }
 
-    for (auto& shooter : shooters) {
-        shooter->fireTimer -= elapsedTime;
-        if (shooter->fireTimer < 0) {
-            shooter->fireTimer += 1.0f / shooter->fireRate;
-            addBullets(shooter->fireCount, shooter->position);
-        }
-    }
-
+    // Limit stored shooters to rendering bounds.
     for (auto i = 0; i < shooters.size();) {
         if (!checkBounds(shooters[i])) {
             shooters.erase(shooters.begin() + i);
@@ -111,12 +118,23 @@ void Game::process()
         }
     }
 
+    // Limit stored explosions to rendering bounds.
     for (auto i = 0; i < explosions.size();) {
         if (explosions[i]->update(elapsedTime)) {
             explosions.erase(explosions.begin() + i);
         }
         else {
             ++i;
+        }
+    }
+
+    // Update shooter fire timers.
+    for (auto& shooter : shooters) {
+        shooter->fireTimer -= elapsedTime;
+        if (shooter->fireTimer < 0) {
+            // Fire
+            shooter->fireTimer += 1.0f / shooter->fireRate;
+            addBullets(shooter->fireCount, shooter->position);
         }
     }
 }

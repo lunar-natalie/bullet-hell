@@ -1,21 +1,25 @@
-/*
- * config.h(.in)
- *
- * CMake configured header for resource builder runtime configuration.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// config.h(.in)
+//
+// CMake configured header for resource builder runtime configuration.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef RESOURCE_BUILDER_CONFIG_H
 #define RESOURCE_BUILDER_CONFIG_H
 
-namespace resource_builder::config {
+namespace resource_builder {
+
+namespace config {
 
 constexpr const char* ASSET_DIRNAME = "@resource_builder_ASSET_DIR@";
 constexpr const char* OUTPUT_FILENAME = "@resource_builder_DATA_OUTPUT@";
 
-} // namespace resource_builder::config
+} // namespace config
+
+} // namespace resource_builder
 
 #endif // RESOURCE_BUILDER_CONFIG_H

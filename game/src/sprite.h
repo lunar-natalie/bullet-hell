@@ -1,12 +1,12 @@
-/*
- * sprite.h
- *
- * Sprite wrapper.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// sprite.h
+//
+// Sprite wrapper.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_SPRITE_H
 #define BULLET_HELL_SPRITE_H
@@ -22,8 +22,8 @@ struct Sprite : olc::Sprite {
     /// @brief GPU-resident storage of the sprite's image.
     olc::Decal* decal;
 
-    /// @brief The center point from which the sprite should be positioned on
-    /// screen, in pixels.
+    /// @brief The center point in pixels from which the sprite should be
+    /// positioned on screen.
     olc::vf2d centerPoint;
 
     /// @brief Creates a new empty Sprite object.

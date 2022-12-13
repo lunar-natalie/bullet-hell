@@ -1,12 +1,12 @@
-/*
- * bullet.h
- *
- * Bullet entity.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// bullet.h
+//
+// Bullet entity.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_BULLET_H
 #define BULLET_HELL_BULLET_H

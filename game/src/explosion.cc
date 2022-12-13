@@ -1,12 +1,12 @@
-/*
- * explosion.cc
- *
- * Explosion entity implementation.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// explosion.cc
+//
+// Explosion entity implementation.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "explosion.h"
 

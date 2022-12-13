@@ -1,12 +1,12 @@
-/*
- * moving_entity.cc
- *
- * Velocity-based entity implementation.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// moving_entity.cc
+//
+// Velocity-based entity implementation.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #include "moving_entity.h"
 

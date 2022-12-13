@@ -1,12 +1,12 @@
-/*
- * partial_sprite.h
- *
- * Sprite wrapper with partial decal.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// partial_sprite.h
+//
+// Sprite wrapper with partial decal.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_PARTIAL_SPRITE_H
 #define BULLET_HELL_PARTIAL_SPRITE_H
@@ -22,7 +22,7 @@ namespace bullet_hell {
 /// @brief Visual representation of an entity, using a partial decal with
 /// multiple frames in a single image.
 struct PartialSprite : Sprite {
-    /// @brief Size of an individual frame in the sprite's image, in pixels.
+    /// @brief Size in pixels of an individual frame in the sprite's image.
     olc::vf2d frameSize;
 
     /// @brief Number of frames in the sprite's image.

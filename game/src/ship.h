@@ -1,12 +1,12 @@
-/*
- * ship.h
- *
- * Ship entity.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// ship.h
+//
+// Ship entity.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_SHIP_H
 #define BULLET_HELL_SHIP_H
@@ -47,7 +47,7 @@ struct Ship : MovingEntity {
     bool isAlive;
     bool isFiring;
 
-    /// @brief Time elapsed in seconds since the ship was last firing.
+    /// @brief Time elapsed in seconds since the ship was last able to fire.
     float reloadTimer;
 
     /// @brief Number of seconds between reloads until the ship can fire.

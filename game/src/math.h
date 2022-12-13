@@ -1,12 +1,12 @@
-/*
- * math.h
- *
- * Mathematical definitions.
- *
- * Copyright (c) 2022 The SFC Project Authors.
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+//
+// math.h
+//
+// Mathematical definitions.
+//
+// Copyright (c) 2022 The SFC Project Authors.
+//
+// SPDX-License-Identifier: GPL-3.0-only
+//
 
 #ifndef BULLET_HELL_MATH_H
 #define BULLET_HELL_MATH_H
